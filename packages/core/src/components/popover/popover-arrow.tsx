@@ -1,0 +1,58 @@
+// import { Placement } from "popper.js";
+// import * as React from "react";
+// import { PopperArrowProps } from "react-popper";
+
+// import * as Classes from "../../common/classes";
+// import { DISPLAYNAME_PREFIX } from "../../common/props";
+// import { getPosition } from "./popperUtils";
+
+import * as Popper from "@popperjs/core";
+import * as React from "react";
+import * as ReactPopper from "react-popper";
+
+import * as Common from "~/common";
+import * as Style from "~/style";
+
+import * as Util from "./popover.util";
+
+// these paths come from the Core Kit Sketch file
+// https://github.com/palantir/blueprint/blob/develop/resources/sketch/Core%20Kit.sketch
+const SVG_SHADOW_PATH =
+	"M8.11 6.302c1.015-.936 1.887-2.922 1.887-4.297v26c0-1.378" +
+	"-.868-3.357-1.888-4.297L.925 17.09c-1.237-1.14-1.233-3.034 0-4.17L8.11 6.302z";
+const SVG_ARROW_PATH =
+	"M8.787 7.036c1.22-1.125 2.21-3.376 2.21-5.03V0v30-2.005" +
+	"c0-1.654-.983-3.9-2.21-5.03l-7.183-6.616c-.81-.746-.802-1.96 0-2.7l7.183-6.614z";
+
+/** Modifier helper function to compute arrow rotate() transform */
+function getArrowAngle(placement?: Popper.Placement) {
+	if (placement == null) {
+		return 0;
+	}
+	// can only be top/left/bottom/right - auto is resolved internally
+	switch (Util.getPosition(placement)) {
+		case "top":
+			return -90;
+		case "left":
+			return 180;
+		case "bottom":
+			return 90;
+		default:
+			return 0;
+	}
+}
+
+export interface IPopoverArrowProps {
+	arrowProps: ReactPopper.PopperArrowProps;
+	placement: Popper.Placement;
+}
+
+export const PopoverArrow: React.SFC<IPopoverArrowProps> = ({ arrowProps: { ref, style }, placement }) => (
+	<div className={Style.Classes.POPOVER_ARROW} ref={ref} style={isNaN(+style.left) ? {} : style}>
+		<svg viewBox="0 0 30 30" style={{ transform: `rotate(${getArrowAngle(placement)}deg)` }}>
+			<path className={Style.Classes.POPOVER_ARROW + "-border"} d={SVG_SHADOW_PATH} />
+			<path className={Style.Classes.POPOVER_ARROW + "-fill"} d={SVG_ARROW_PATH} />
+		</svg>
+	</div>
+);
+PopoverArrow.displayName = `${Common.DISPLAYNAME_PREFIX}.PopoverArrow`;
