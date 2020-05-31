@@ -13,6 +13,11 @@ export default {
 export const interactive = () => {
 	return <Divider />;
 };
+interactive.story = {
+  parameters: {
+    jest: ["divider.test.tsx"],
+  },
+};
 
 export const Vertical = () => {
 	return (

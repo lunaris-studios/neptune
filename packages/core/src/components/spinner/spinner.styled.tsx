@@ -148,45 +148,43 @@ Spinner.SVG.Path = {} as SpinnerSVGPath;
  * [Spinner.SVG.Path.Track]
  */
 
-interface ISpinnerSVGPathTrackProps {
-	stroke: Protocol.Bind;
-}
+interface ISpinnerSVGPathTrackProps {}
 
 interface ISpinnerSVGPathTrackAttrs extends ISpinnerSVGPathTrackProps {}
 
+const SPINNER_SVG_PATH_HEAD_TRACK = Protocol.bind("scheme", {
+	[Protocol.Scheme.DARK]: Protocol.Color.BLACK_2,
+	[Protocol.Scheme.LIGHT]: Protocol.Color.BLACK_4,
+});
+
 Spinner.SVG.Path.Track = styled(Spinner.SVG.Shared.Path).attrs(
 	(props: ISpinnerSVGPathTrackProps): ISpinnerSVGPathTrackAttrs => ({
-		...props,
-		// stroke: Protocol.bind("scheme", {
-		// 	[Protocol.Scheme.DARK]: Protocol.Color.BLACK_3,
-		// 	[Protocol.Scheme.LIGHT]: Protocol.Color.BLACK_5,
-		// }),
+		...props
 	}),
 )`
-	stroke: ${(props) => props.stroke};
+	stroke: ${SPINNER_SVG_PATH_HEAD_TRACK};
 `;
 
 /**
  * [Spinner.SVG.Path.Head]
  */
 
-interface ISpinnerSVGPathHeadProps {
-	_stroke: Protocol.Bind;
-}
+interface ISpinnerSVGPathHeadProps {}
 
 interface ISpinnerSVGPathHeadAttrs extends ISpinnerSVGPathHeadProps {}
+
+const SPINNER_SVG_PATH_HEAD_HEAD = Protocol.bind("scheme", {
+	[Protocol.Scheme.DARK]: Protocol.Color.BLACK_3,
+	[Protocol.Scheme.LIGHT]: Protocol.Color.BLACK_5,
+});
 
 // TODO (sam): Add intent / color injection
 Spinner.SVG.Path.Head = styled("path").attrs(
 	(props: ISpinnerSVGPathHeadProps): ISpinnerSVGPathHeadAttrs => ({
-		...props,
-		// _stroke: Protocol.bind("scheme", {
-		// 	[Protocol.Scheme.DARK]: Protocol.Color.BLACK_2,
-		// 	[Protocol.Scheme.LIGHT]: Protocol.Color.BLACK_4,
-		// }),
+		...props
 	}),
 )`
-	stroke: ${(props) => props.stroke};
+	stroke: ${SPINNER_SVG_PATH_HEAD_HEAD};
 	stroke-linecap: round;
 	transform-origin: center;
 	transition: stroke-dashoffset 200ms ${Protocol.TRANSITION_EASE};

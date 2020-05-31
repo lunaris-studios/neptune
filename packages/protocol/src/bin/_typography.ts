@@ -1,7 +1,6 @@
 import * as T from "typography";
 
 import * as Constants from "~/constants";
-import * as Snippets from "~/snippets";
 
 /**
  * Default typography theme for Nucleus.

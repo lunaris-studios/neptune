@@ -7,7 +7,7 @@ type BindName = keyof Binds;
 type BindThemeName<TBindName extends BindName> = Binds[TBindName];
 type VariantName = string;
 
-type BindValueResult = string | SC.FlattenInterpolation<ThemedStyledProps<any>>;
+type BindValueResult = string | number | SC.FlattenInterpolation<ThemedStyledProps<any>>;
 type BindValueFn = (props: object) => BindValueResult;
 type BindValue = BindValueFn | BindValueResult;
 

@@ -19,6 +19,7 @@ import styled, { createGlobalStyle } from "styled-components";
 /**
  * [Head]
  * - [Head.Global(GLOBAL_STYLE)]
+ * - [Head.Fonts(GLOBAL_STYLE)]
  */
 
 interface Head {
@@ -51,14 +52,14 @@ Head.Global = createGlobalStyle`
 Head.Fonts = createGlobalStyle`
   ${Protocol.Snippets.fontFace({
 		fontFamily: "KVC Midgard",
-		fontFilePath: MidgardRegular,
+		fontFilePath: "MidgardRegular",
 		fileFormats: ["otf"],
 		fontWeight: "regular",
 	})}
 
   ${Protocol.Snippets.fontFace({
 		fontFamily: "KVC Midgard",
-		fontFilePath: MidgardSymbols,
+		fontFilePath: "MidgardSymbols",
 		fileFormats: ["otf"],
 		fontWeight: "regular",
 	})}

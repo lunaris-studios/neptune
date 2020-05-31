@@ -31,10 +31,10 @@ export class AnchorButton extends Abstract.AbstractButton<React.AnchorHTMLAttrib
 		const AniamtedAnchorElement = Spring.animated("a");
 		return (
 			<Styled.Button.Element
-				as={AniamtedAnchorElement}
-				role="button"
 				{...Util.removeNonHTMLProps(this.props)}
 				{...commonProps}
+				as={AniamtedAnchorElement}
+				role="button"
 				href={commonProps.disabled ? undefined : href}
 				tabIndex={commonProps.disabled ? -1 : tabIndex}
 			>
@@ -51,6 +51,6 @@ export class TestButton extends Abstract.AbstractButton<React.ButtonHTMLAttribut
 
 	public render() {
 		console.log("ButtonSVG", ButtonSVG, ButtonSVGComponent);
-		return (<ButtonSVGComponent />);
+		return <ButtonSVGComponent />;
 	}
 }

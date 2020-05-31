@@ -1,37 +1,44 @@
-import * as Polished from "polished";
 import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
-import * as Testing from "@testing-library/react";
 
-import * as BIN from "~/bin";
+import * as Util from "~/util";
 
-import { Spinner } from "./spinner";
+import * as Component from "./spinner";
+import * as Styled from "./spinner.styled";
 
 // @ts-ignore
 import { find } from "styled-components/test-utils";
 
 describe("Spinner", () => {
-	const wrapper = (props: BIN.INucleusProviderProps = BIN.NucleusProvider.defaultProps) => {
-		return Testing.render(<BIN.NucleusProvider {...props} />);
-	};
-
 	it("renders correctly", () => {
-		const node = wrapper();
-		const SpinnerContainer = find(node.baseElement, Spinner.Styled.Spinner.Container);
+		const node = Util.wrapper(<Component.Spinner />);
+		const SpinnerContainer = find(node.baseElement, Styled.Spinner.Container);
 		expect(SpinnerContainer).toMatchSnapshot();
 	});
 
 	it("overflows out of bounds value", () => {});
 
-	it("uses dark colors when <Scheme.DARK> mode is enabled", () => {
-		const node = wrapper({ theme: { binds: { scheme: Protocol.Scheme.DARK } } });
-		const SpinnerSVGPathHead = find(node.baseElement, Spinner.Styled.Spinner.SVG.Path.Head);
-		expect(SpinnerSVGPathHead).toHaveStyleRule("stroke", Protocol.Color.BLACK_4);
+	it("<Styled.Spinner.SVG.Path.Head> responds to color scheme change when [Scheme.DARK] is active", () => {
+		const node = Util.wrapper(<Component.Spinner />, { scheme: Protocol.Scheme.DARK });
+		const SpinnerSVGPathHead = find(node.baseElement, Styled.Spinner.SVG.Path.Head);
+		expect(SpinnerSVGPathHead).toHaveStyleRule("stroke", Protocol.Color.BLACK_3);
 	});
 
-	it("uses light colors when <Scheme.LIGHT> mode is enabled", () => {
-		const node = wrapper({ theme: { binds: { scheme: Protocol.Scheme.LIGHT } } });
-		const SpinnerSVGPathHead = find(node.baseElement, Spinner.Styled.Spinner.SVG.Path.Head);
-		expect(SpinnerSVGPathHead).toHaveStyle("stroke", Protocol.Color.BLACK_2);
+	it("<Styled.Spinner.SVG.Path.Head> responds to color scheme change when [Scheme.LIGHT] is active", () => {
+		const node = Util.wrapper(<Component.Spinner />, { scheme: Protocol.Scheme.LIGHT });
+		const SpinnerSVGPathHead = find(node.baseElement, Styled.Spinner.SVG.Path.Head);
+		expect(SpinnerSVGPathHead).toHaveStyleRule("stroke", Protocol.Color.BLACK_5);
+	});
+
+	it("<Styled.Spinner.SVG.Path.Track> responds to color scheme change when [Scheme.DARK] is active", () => {
+		const node = Util.wrapper(<Component.Spinner />, { scheme: Protocol.Scheme.DARK });
+		const SpinnerSVGPathTrack = find(node.baseElement, Styled.Spinner.SVG.Path.Track);
+		expect(SpinnerSVGPathTrack).toHaveStyleRule("stroke", Protocol.Color.BLACK_2);
+	});
+
+	it("<Styled.Spinner.SVG.Path.Track> responds to color scheme change when [Scheme.LIGHT] is active", () => {
+		const node = Util.wrapper(<Component.Spinner />, { scheme: Protocol.Scheme.LIGHT });
+		const SpinnerSVGPathTrack = find(node.baseElement, Styled.Spinner.SVG.Path.Track);
+		expect(SpinnerSVGPathTrack).toHaveStyleRule("stroke", Protocol.Color.BLACK_4);
 	});
 });

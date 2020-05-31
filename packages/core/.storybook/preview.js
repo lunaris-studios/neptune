@@ -28,5 +28,6 @@ addParameters({
 addDecorator(
 	withTests({
 		results,
+		filesExt: '((\\.specs?)|(\\.tests?))?(\\.ts)?$',
 	}),
 );

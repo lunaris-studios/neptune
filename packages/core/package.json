@@ -16,8 +16,10 @@
 		"clean:modules": "rm -rf ./node_modules/",
 		"compile": "run-p \"compile:*\"",
 		"compile:storybook": "build-storybook",
+		"compile:jest": "npm run test:jest-generate-output",
 		"compile:rollup": "rollup -c",
 		"dev": "run-p \"dev:*\"",
+		"dev:jest": "npm run test:jest-generate-output -- --watch",
 		"dev:rollup": "rollup -cw",
 		"dev:storybook": "start-storybook -p 9009 --ci",
 		"dist": "run-s: \"dist:*\"",
@@ -28,7 +30,7 @@
 		"test": "run-s test:type-check test:jest",
 		"test:type-check": "tsc",
 		"test:jest": "jest",
-		"test:generate-output": "jest --json --outputFile=./coverage/.jest-test-results.json || true",
+		"test:jest-generate-output": "jest --json --outputFile=./coverage/.jest-test-results.json || true",
 		"verify": "npm-run-all compile -p dist test lint"
 	},
 	"dependencies": {
@@ -88,6 +90,7 @@
 		"@typescript-eslint/eslint-plugin": "^3.0.1",
 		"@typescript-eslint/parser": "^3.0.1",
 		"babel-loader": "8.1.0",
+		"babel-plugin-styled-components": "^1.10.7",
 		"babel-preset-react-app": "^9.1.2",
 		"csstype": "^2.6.10",
 		"eslint-config-react-app": "^5.2.1",

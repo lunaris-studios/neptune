@@ -2,7 +2,7 @@ import { css } from "styled-components";
 
 export function miniReset() {
 	return css`
-		/*! minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */
+		/* minireset.css v0.0.4 | MIT License | github.com/jgthms/minireset.css */
 		html,
 		body,
 		p,

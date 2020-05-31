@@ -1,8 +1,17 @@
 import * as Constants from "~/constants";
 
-interface Binds {
-	device: typeof Constants.Device;
-	scheme: typeof Constants.Scheme;
+export interface Binds {
+	/**
+	 * Used to identify the current client window size.
+	 * @default Breakpoint.DESKTOP
+	 */
+	device: Constants.Device;
+
+	/**
+	 * Used to indicate the global color scheme for the client.
+	 * @default Scheme.LIGHT
+	 */
+	scheme: Constants.Scheme;
 }
 
 export interface Theme {
@@ -19,10 +28,10 @@ export interface Theme {
 	schemes: typeof Constants.Scheme;
 	sizes: typeof Constants.Size;
 	spaces: typeof Constants.Space;
-};
+}
 
 /** Default theme values for root `styled-compoents` <ThemeProvider> */
-export const Theme = Object.freeze({
+export const Theme = Object.freeze<Theme>({
 	binds: {
 		device: Constants.Device.DESKTOP,
 		scheme: Constants.Scheme.DARK,

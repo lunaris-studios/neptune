@@ -7,7 +7,10 @@ export * from "./_js-utils";
 export * from "./_pipe";
 export * from "./_react-utils";
 export * from "./_remove-non-html-props";
+export * from "./_test-util";
 
-export { default as clamp } from "lodash/clamp";
+import clamp from "lodash/clamp";
+
+export { clamp };
 export { default as isNull } from "lodash/isNull";
 export { default as camelCase } from "lodash/camelCase";

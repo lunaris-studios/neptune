@@ -1,3 +1,4 @@
+import * as Icon from "@nucleus/icons";
 import * as React from "react";
 import * as Knobs from "@storybook/addon-knobs";
 import * as Actions from "@storybook/addon-actions";
@@ -11,5 +12,10 @@ export default {
 };
 
 export const interactive = () => {
-	return <Component.Icon />;
+	return <Component.Icon icon={Icon.IconNames.ADD} />;
+};
+interactive.story = {
+  parameters: {
+    jest: ["icon.test.tsx"],
+  },
 };
