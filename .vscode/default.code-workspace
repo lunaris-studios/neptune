@@ -9,20 +9,20 @@
 			"path": "../packages/core"
 		},
 		{
+			"name": "[DOCS-APP]",
+			"path": "../packages/docs-app"
+		},
+		{
 			"name": "[ICONS]",
 			"path": "../packages/icons"
 		},
 		{
+			"name": "[PROTOCOL]",
+			"path": "../packages/protocol"
+		},
+		{
 			"name": "[SCRIPTS]",
 			"path": "../packages/scripts"
-		},
-		{
-			"name": "[SYSTEM]",
-			"path": "../packages/system"
-		},
-		{
-			"name": "[WEBSITE]",
-			"path": "../packages/website"
 		}
 	],
 	"settings": {
@@ -44,6 +44,8 @@
 			"titleBar.inactiveBackground": "#66339999",
 			"titleBar.inactiveForeground": "#e7e7e799"
 		},
-		"peacock.remoteColor": "#663399"
+		"peacock.remoteColor": "#663399",
+		"todo-tree.tree.scanMode": "workspace",
+		"search.useGlobalIgnoreFiles": true
 	}
 }

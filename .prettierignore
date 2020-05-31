@@ -5,4 +5,7 @@ package.json
 storybook-static
 public
 .cache
+generated
+lib
 dist
+/site/

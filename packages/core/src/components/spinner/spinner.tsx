@@ -20,7 +20,7 @@ const MIN_SIZE = 10;
 const STROKE_WIDTH = 4;
 const MIN_STROKE_WIDTH = 16;
 
-export enum Size {
+export enum SpinnerSize {
 	SIZE_SMALL = 20,
 	SIZE_STANDARD = 50,
 	SIZE_LARGE = 100,
@@ -38,25 +38,25 @@ export interface ISpinnerProps extends Common.IProps, Common.IIntentProps {
 	 *
 	 * @default Spinner.SIZE_STANDARD = 50
 	 */
-	size?: number;
+	size: number;
 
 	/**
 	 * HTML tag for the two wrapper elements. If rendering a `<Spinner>` inside
 	 * an `<svg>`, change this to an SVG element like `"g"`.
 	 * @default "div"
 	 */
-	tagName?: keyof JSX.IntrinsicElements;
+	tagName: keyof JSX.IntrinsicElements;
 
 	/**
 	 * A value between 0 and 1 (inclusive) representing how far along the operation is.
 	 * Values below 0 or above 1 will be interpreted as 0 or 1 respectively.
 	 * Omitting this prop will result in an "indeterminate" spinner where the head spins indefinitely.
 	 */
-	value?: number;
+	value: number;
 }
 
 const defaultProps = Object.freeze<ISpinnerProps>({
-	size: Size.SIZE_STANDARD,
+	size: SpinnerSize.SIZE_STANDARD,
 	tagName: "div",
 	value: 0.25,
 });
@@ -69,9 +69,9 @@ export class Spinner extends Components.AbstractPureComponent<ISpinnerProps, {}>
 	public static Styled = Styled;
 	public static Errors = Errors;
 
-	public static readonly SIZE_SMALL = Size.SIZE_SMALL;
-	public static readonly SIZE_STANDARD = Size.SIZE_STANDARD;
-	public static readonly SIZE_LARGE = Size.SIZE_LARGE;
+	public static readonly SIZE_SMALL = SpinnerSize.SIZE_SMALL;
+	public static readonly SIZE_STANDARD = SpinnerSize.SIZE_STANDARD;
+	public static readonly SIZE_LARGE = SpinnerSize.SIZE_LARGE;
 
 	public componentDidUpdate(prevProps: ISpinnerProps) {
 		if (prevProps.value !== this.props.value) {

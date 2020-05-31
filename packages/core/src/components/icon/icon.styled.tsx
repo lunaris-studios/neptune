@@ -3,7 +3,6 @@ import * as SC from "styled-components";
 
 import * as Common from "~/common";
 import * as Components from "~/components";
-import * as Style from "~/style";
 
 // re-import `styled-components` development mode DOM classnames.
 import styled, { css } from "styled-components";
@@ -41,7 +40,7 @@ interface IIconContainerAttrs extends IIconContainerProps {}
 Icon.Container = styled("div").attrs(
 	(props: IIconContainerProps): IIconContainerAttrs => ({
 		...props,
-	})
+	}),
 )`
 	/* ensure icons sit inline with text & isolate svg from surrounding elements */
 	/* (vertical alignment in flow is usually off due to svg - not an issue with flex.) */
@@ -69,7 +68,7 @@ interface IIconSVGAttrs extends IIconSVGProps {}
 Icon.SVG = styled("svg").attrs(
 	(props: IIconSVGProps): IIconSVGAttrs => ({
 		...props,
-	})
+	}),
 )`
 	/* prevent extra vertical whitespace */
 	display: block;
@@ -91,5 +90,5 @@ interface IIconTitleAttrs extends IIconTitleProps {}
 Icon.Title = styled("desc").attrs(
 	(props: IIconTitleProps): IIconTitleAttrs => ({
 		...props,
-	})
+	}),
 )``;

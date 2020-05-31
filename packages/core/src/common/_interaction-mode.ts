@@ -1,4 +1,4 @@
-const TAB_KEY_CODE = 9;
+import * as Protocol from "@nucleus/protocol";
 
 /**
  * A nifty little class that maintains event handlers to add a class to the container element
@@ -8,8 +8,7 @@ const TAB_KEY_CODE = 9;
 export class InteractionModeEngine {
 	private isRunning = false;
 
-	// tslint:disable-next-line:no-constructor-vars
-	constructor(private container: Element, private className: string) {}
+	constructor(private container: HTMLElement, private className: string) {}
 
 	/** Returns whether the engine is currently running. */
 	public isActive() {
@@ -35,7 +34,7 @@ export class InteractionModeEngine {
 	}
 
 	private handleKeyDown = (e: KeyboardEvent) => {
-		if (e.which === TAB_KEY_CODE) {
+		if (e.which === Protocol.Key.TAB) {
 			this.reset();
 			this.container.addEventListener("mousedown", this.handleMouseDown);
 		}

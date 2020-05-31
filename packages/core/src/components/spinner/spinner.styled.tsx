@@ -1,11 +1,11 @@
+import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
 import * as SC from "styled-components";
 
 import * as Common from "~/common";
-import * as Style from "~/style";
 
 // re-import `styled-components` development mode DOM classnames.
-import styled, { css, keyframes } from "styled-components";
+import styled, { keyframes } from "styled-components";
 
 /**
  * Table of Contents
@@ -37,7 +37,7 @@ interface ISpinnerContainerAttrs extends ISpinnerContainerProps {}
 Spinner.Container = styled("div").attrs(
 	(props: ISpinnerContainerProps): ISpinnerContainerAttrs => ({
 		...props,
-	})
+	}),
 )`
 	align-items: center;
 	/* center animation container inside parent element to isolate layout */
@@ -69,7 +69,7 @@ Spinner.SVG = {} as SpinnerSVG;
 
 interface ISpinnerSVGContainerProps extends Common.IIntentProps {
 	isSpinning: boolean;
-	animation: SC.Keyframes;
+	animation: SC.Keyframes | string;
 }
 
 interface ISpinnerSVGContainerAttrs extends ISpinnerSVGContainerProps {}
@@ -85,12 +85,12 @@ const spinnerAnimation = keyframes`{
 
 Spinner.SVG.Container = styled("svg").attrs(
 	(props: ISpinnerSVGContainerProps): ISpinnerSVGContainerAttrs => ({
-		animation: props.isSpinning ? spinnerAnimation : "none",
 		...props,
-	})
+		animation: props.isSpinning ? spinnerAnimation : "none",
+	}),
 )`
 	display: block;
-	fill: ${Style.Color.TRANSPARENT};
+	fill: ${Protocol.Color.TRANSPARENT};
 	animation: ${(props) => props.animation} 500ms linear infinite;
 `;
 
@@ -116,7 +116,7 @@ interface ISpinnerSVGSharedPathAttrs extends ISpinnerSVGSharedPathProps {}
 Spinner.SVG.Shared.Path = styled("path").attrs(
 	(props: ISpinnerSVGSharedPathProps): ISpinnerSVGSharedPathAttrs => ({
 		...props,
-	})
+	}),
 )`
 	fill-opacity: 0;
 `;
@@ -149,19 +149,19 @@ Spinner.SVG.Path = {} as SpinnerSVGPath;
  */
 
 interface ISpinnerSVGPathTrackProps {
-	stroke: string;
+	stroke: Protocol.Bind;
 }
 
 interface ISpinnerSVGPathTrackAttrs extends ISpinnerSVGPathTrackProps {}
 
 Spinner.SVG.Path.Track = styled(Spinner.SVG.Shared.Path).attrs(
 	(props: ISpinnerSVGPathTrackProps): ISpinnerSVGPathTrackAttrs => ({
-		stroke: Style.bind(Style.Theme.MODE, {
-			[Style.Mode.DARK]: Style.Color.BLACK_3,
-			[Style.Mode.LIGHT]: Style.Color.BLACK_5,
-		}),
 		...props,
-	})
+		// stroke: Protocol.bind("scheme", {
+		// 	[Protocol.Scheme.DARK]: Protocol.Color.BLACK_3,
+		// 	[Protocol.Scheme.LIGHT]: Protocol.Color.BLACK_5,
+		// }),
+	}),
 )`
 	stroke: ${(props) => props.stroke};
 `;
@@ -171,23 +171,23 @@ Spinner.SVG.Path.Track = styled(Spinner.SVG.Shared.Path).attrs(
  */
 
 interface ISpinnerSVGPathHeadProps {
-	stroke: string;
+	_stroke: Protocol.Bind;
 }
 
 interface ISpinnerSVGPathHeadAttrs extends ISpinnerSVGPathHeadProps {}
 
-// TODO: Add intent / color injection
+// TODO (sam): Add intent / color injection
 Spinner.SVG.Path.Head = styled("path").attrs(
 	(props: ISpinnerSVGPathHeadProps): ISpinnerSVGPathHeadAttrs => ({
-		stroke: Style.bind(Style.Theme.MODE, {
-			[Style.Mode.DARK]: Style.Color.BLACK_2,
-			[Style.Mode.LIGHT]: Style.Color.BLACK_4,
-		}),
 		...props,
-	})
+		// _stroke: Protocol.bind("scheme", {
+		// 	[Protocol.Scheme.DARK]: Protocol.Color.BLACK_2,
+		// 	[Protocol.Scheme.LIGHT]: Protocol.Color.BLACK_4,
+		// }),
+	}),
 )`
 	stroke: ${(props) => props.stroke};
 	stroke-linecap: round;
 	transform-origin: center;
-	transition: stroke-dashoffset 200ms ${Style.TRANSITION_EASE};
+	transition: stroke-dashoffset 200ms ${Protocol.TRANSITION_EASE};
 `;

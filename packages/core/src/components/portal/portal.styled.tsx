@@ -1,9 +1,6 @@
+import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
 import * as SC from "styled-components";
-
-import * as Common from "~/common";
-import * as Components from "~/components";
-import * as Style from "~/style";
 
 // re-import `styled-components` development mode DOM classnames.
 import styled, { css } from "styled-components";
@@ -29,14 +26,14 @@ export const Portal = {} as Portal;
  * [Portal.Container]
  */
 
-interface IPortalContainerProps {}
+interface IPortalContainerProps extends SC.ThemeProps<SC.DefaultTheme>, React.HTMLProps<HTMLDivElement> {}
 
 interface IPortalContainerAttrs extends IPortalContainerProps {}
 
 Portal.Container = styled("div").attrs(
 	(props: IPortalContainerProps): IPortalContainerAttrs => ({
 		...props,
-	})
-)`
-	${Style.Snippets.cover()}
+	}),
+)<IPortalContainerProps>`
+	${Protocol.Snippets.cover()}
 `;

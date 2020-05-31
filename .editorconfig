@@ -1,23 +1,25 @@
-# EditorConfig helps developers define and maintain consistent
-# coding styles between different editors and IDEs
-# editorconfig.org
+# EditorConfig is awesome: http://EditorConfig.org
 
+# top-most EditorConfig file
 root = true
 
-
-# Apply for all files
 [*]
-
-charset = utf-8
-indent_style = space
-indent_size = 2
+# Unix-style newlines with a newline ending every file
 end_of_line = lf
 insert_final_newline = true
 trim_trailing_whitespace = true
-
-
-# Apply for package.json
-[package.json]
-
-indent_style = space
+# 2 spaces for indentation
 indent_size = 2
+indent_style = space
+# 120 characters max per line
+max_line_length = 120
+
+# some files use 4 spaces for indentation
+[*.{js,jsx,ts,tsx,java,xml,md}]
+indent_size = 4
+
+[*.java]
+continuation_indent_size = 8
+
+[tsconfig.json]
+indent_size = 4

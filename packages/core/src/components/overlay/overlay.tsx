@@ -1,12 +1,14 @@
+import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
 import * as Spring from "react-spring";
 
-import * as Abstract from "~/abstract";
+import * as Animators from "~/animators";
 import * as Common from "~/common";
 import * as Components from "~/components";
+
 import * as Util from "~/util";
 
-import * as Animation from "./overlay.animation";
+import * as Animated from "./overlay.animated";
 import * as Styled from "./overlay.styled";
 
 /**
@@ -221,10 +223,6 @@ export interface IOverlayState {
 	hasEverOpened?: boolean;
 }
 
-export interface IOverlayAnimation {
-	container: Animation.Container;
-}
-
 const defaultProps = Object.freeze<IOverlayProps>({
 	autoFocus: true,
 	canEscapeKeyClose: true,
@@ -240,26 +238,16 @@ const defaultState = Object.freeze<IOverlayState>({
 	hasEverOpened: false,
 });
 
-const defaultAnimation = Object.freeze<IOverlayAnimation>({
-	container: new Animation.Container(),
-});
-
 export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOverlayState> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.Overlay`;
 
 	static readonly defaultProps: IOverlayProps = defaultProps;
 	public static defaultState: IOverlayState = defaultState;
-	public static defaultAnimation: IOverlayAnimation = defaultAnimation;
 
 	public state: IOverlayState = { hasEverOpened: this.props.isOpen };
+	private animated: Animated.Controller = new Animated.Controller();
 
-	private animation: IOverlayAnimation = defaultAnimation;
-
-	public containerEl: HTMLElement = null;
-
-	private refHandlers = {
-		container: (ref: HTMLElement) => (this.containerEl = ref),
-	};
+	public containerRef: React.RefObject<HTMLDivElement> = React.createRef();
 
 	public render() {
 		/** No reason to render anything at all if we're being truly lazy */
@@ -279,31 +267,68 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 			usePortal,
 		} = this.props;
 
-		const containerTransitionProps = this.animation.container.transitionProps({
-			isOpen,
-			onClosing,
-			onClosed,
-			onOpening,
-			onOpened,
-		});
+		const transitionContent = (
+			<Styled.Overlay.Container onKeyDown={this.handleKeyDown} ref={this.containerRef}>
+				<Styled.Overlay.Content>{children}</Styled.Overlay.Content>
+				{hasBackdrop && (
+					<Styled.Overlay.Backdrop
+						onMouseDown={this.handleBackdropMouseDown}
+						tabIndex={canOutsideClickClose ? 0 : -1}
+					/>
+				)}
+			</Styled.Overlay.Container>
+		);
 
 		const transitionGroup = (
-			<Spring.Transition items={isOpen} {...containerTransitionProps}>
-				{(style, visible) =>
-					visible && (
-						<Styled.Overlay.Container style={style} onKeyDown={this.handleKeyDown} ref={this.refHandlers.container}>
-							<Styled.Overlay.Content>{children}</Styled.Overlay.Content>
-							{hasBackdrop && (
-								<Styled.Overlay.Backdrop
-									onMouseDown={this.handleBackdropMouseDown}
-									tabIndex={canOutsideClickClose ? 0 : null}
-								/>
-							)}
-						</Styled.Overlay.Container>
-					)
-				}
-			</Spring.Transition>
+			<Animated.OverlayContainerTransition
+				isOpen={isOpen}
+				onClosing={onClosing}
+				onClosed={onClosed}
+				onOpening={onOpening}
+				onOpened={onOpened}
+				render={transitionContent}
+			/>
 		);
+
+		// const transitionGroup = (
+		// 	<Spring.Transition
+		// 		items={isOpen}
+		// 		from={{ opacity: 0, transform: "translate3d(0%, -100%, 0%)" }}
+		// 		enter={() => async (next) => {
+		// 			await next({ opacity: 1, transform: "translate3d(100%, 0%, 0%)" });
+		// 		}}
+		// 		leave={() => async (next) => {
+		// 			await next({
+		// 				opacity: 0,
+		// 				transform: "translate3d(100%, 0%, 0%)",
+		// 			});
+		// 		}}
+		// 		onStart={() => {
+		// 			if (isOpen && Util.isFunction(onOpening)) return onOpening();
+		// 			if (!isOpen && Util.isFunction(onClosing)) return onClosing();
+		// 			return;
+		// 		}}
+		// 		onRest={() => {
+		// 			if (isOpen && Util.isFunction(onOpened)) return onOpened();
+		// 			if (!isOpen && Util.isFunction(onClosed)) return onClosed();
+		// 			return;
+		// 		}}
+		// 	>
+		// 		{(style, visible) =>
+		// 			visible && (
+		// 				<Styled.Overlay.Container style={style} onKeyDown={this.handleKeyDown} ref={this.containerRef}>
+		// 					<Styled.Overlay.Content>{children}</Styled.Overlay.Content>
+		// 					{hasBackdrop && (
+		// 						<Styled.Overlay.Backdrop
+		// 							onMouseDown={this.handleBackdropMouseDown}
+		// 							tabIndex={canOutsideClickClose ? 0 : -1}
+		// 						/>
+		// 					)}
+		// 				</Styled.Overlay.Container>
+		// 			)
+		// 		}
+		// 	</Spring.Transition>
+		// );
 
 		return usePortal ? <Components.Portal>{transitionGroup}</Components.Portal> : transitionGroup;
 	}
@@ -354,7 +379,9 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 		const eventTarget = event.target as HTMLElement;
 
 		const isClickInThisOverlayOrDescendant =
-			this.containerEl && this.containerEl.contains(eventTarget) && !this.containerEl.isSameNode(eventTarget);
+			this.containerRef.current &&
+			this.containerRef.current.contains(eventTarget) &&
+			!this.containerRef.current.isSameNode(eventTarget);
 
 		if (isOpen && canOutsideClickClose && !isClickInThisOverlayOrDescendant) {
 			// casting to any because this is a native event
@@ -378,9 +405,9 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 		const { enforceFocus } = this.props;
 		if (
 			enforceFocus &&
-			this.containerEl != null &&
+			this.containerRef.current != null &&
 			event.target instanceof Node &&
-			!this.containerEl.contains(event.target as HTMLElement)
+			!this.containerRef.current.contains(event.target as HTMLElement)
 		) {
 			// prevent default focus behavior (sometimes auto-scrolls the page)
 			event.preventDefault();
@@ -392,19 +419,19 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 	private focusOverlay() {
 		// container ref may be undefined between component mounting and Portal rendering
 		// activeElement may be undefined in some rare cases in IE
-		if (this.containerEl == null || document.activeElement == null || !this.props.isOpen) {
+		if (this.containerRef.current == null || document.activeElement == null || !this.props.isOpen) {
 			return;
 		}
 
-		const isFocusOutsideModal = !this.containerEl.contains(document.activeElement);
+		const isFocusOutsideModal = !this.containerRef.current.contains(document.activeElement);
 		if (isFocusOutsideModal) {
-			this.containerEl.focus();
+			this.containerRef.current.focus();
 		}
 	}
 
 	private handleKeyDown = (event: React.KeyboardEvent<HTMLElement>) => {
 		const { canEscapeKeyClose, onClose } = this.props;
-		if (event.which === Common.Key.ESCAPE && canEscapeKeyClose) {
+		if (event.which === Protocol.Key.ESCAPE && canEscapeKeyClose) {
 			Util.safeInvoke(onClose, event);
 			// prevent browser-specific escape key behavior (Safari exits fullscreen)
 			event.preventDefault();

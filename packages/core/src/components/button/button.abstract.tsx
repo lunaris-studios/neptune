@@ -1,8 +1,9 @@
+import * as Icons from "@nucleus/icons";
+import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
 
 import * as Common from "~/common";
 import * as Components from "~/components";
-import * as Style from "~/style";
 import * as Util from "~/util";
 
 import * as Styled from "./button.styled";
@@ -13,7 +14,7 @@ export interface IButtonProps extends Common.IActionProps {
 	 * This is equivalent to setting `className={Classes.ACTIVE}`.
 	 * @default false
 	 */
-	active?: boolean;
+	active: boolean;
 
 	/**
 	 * Text alignment within button. By default, icons and text will be centered
@@ -22,58 +23,66 @@ export interface IButtonProps extends Common.IActionProps {
 	 * `"center"` will center the text and icons together.
 	 * @default Alignment.CENTER
 	 */
-	alignText: Style.Alignment;
+	alignText: Protocol.Alignment;
 
-	/** A ref handler that receives the native HTML element backing this component. */
-	elementRef?: (ref: HTMLElement | null) => any;
+	/**
+	 * A ref handler that receives the native HTML element backing this component.
+	 */
+	elementRef?: (ref: Nullable<HTMLElement | null>) => any;
 
 	/**
 	 * Whether this button should expand to fill its container.
 	 * @default false
 	 */
-	fill?: boolean;
+	fill: boolean;
+
+	/**
+	 * Name of a Nucleus UI icon (or an icon element) to render before the text.
+	 */
+	icon?: Icons.IconName | Common.MaybeElement;
 
 	/**
 	 * Whether this button should use large styles.
 	 * @default false
 	 */
-	large?: boolean;
+	large: boolean;
 
 	/**
 	 * If set to `true`, the button will display a centered loading spinner instead of its contents.
 	 * The width of the button is not affected by the value of this prop.
 	 * @default false
 	 */
-	loading?: boolean;
+	loading: boolean;
 
 	/**
 	 * Whether this button should use minimal styles.
 	 * @default false
 	 */
-	minimal?: boolean;
+	minimal: boolean;
 
 	/**
 	 * Whether this button should use outlined styles.
 	 * @default false
 	 */
-	outlined?: boolean;
+	outlined: boolean;
 
-	/** Name of a Blueprint UI icon (or an icon element) to render after the text. */
-	// TODO: add definite reference to `IconName` list
-	rightIcon?: Components.IconName | Common.MaybeElement;
+	/**
+	 * Name of a Nucleus UI icon (or an icon element) to render after the text.
+	 */
+	rightIcon?: Icons.IconName | Common.MaybeElement;
 
 	/**
 	 * Whether this button should use small styles.
 	 * @default false
 	 */
-	small?: boolean;
+	small: boolean;
 
 	/**
 	 * HTML `type` attribute of button. Accepted values are `"button"`, `"submit"`, and `"reset"`.
 	 * Note that this prop has no effect on `AnchorButton`; it only affects `Button`.
 	 * @default "button"
 	 */
-	type?: "submit" | "reset" | "button";
+	type: "submit" | "reset" | "button";
 }
 
 export interface IButtonState {
@@ -81,21 +90,17 @@ export interface IButtonState {
 }
 
 const defaultProps = Object.freeze<IButtonProps>({
-	disabled: false,
-	text: false,
 	active: false,
-	alignText: Style.Alignment.CENTER,
+	alignText: Protocol.Alignment.CENTER,
+	disabled: false,
 	fill: false,
+	intent: Protocol.Intent.NONE,
 	large: false,
 	loading: false,
 	minimal: false,
 	outlined: false,
 	small: false,
 	type: "button",
-	intent: Style.Intent.NONE,
-	elementRef: null,
-	onClick: null,
-	rightIcon: null,
 });
 
 export const defaultState = Object.freeze<IButtonState>({
@@ -110,25 +115,27 @@ export abstract class AbstractButton<H extends React.HTMLAttributes<any>> extend
 
 	public state: IButtonState = defaultState;
 
-	private currentKeyDown: number = null;
+	private currentKeyDown: Nullable<number> = null;
 
-	protected buttonRef: HTMLElement;
+	public buttonRef: Nullable<HTMLElement> = null;
 	protected refHandlers = {
-		button: (ref: HTMLElement) => {
+		button: (ref: HTMLElement | null) => {
 			this.buttonRef = ref;
-			Util.safeInvoke(this.props.elementRef, ref);
+			if (this.props.elementRef && ref) {
+				Util.safeInvoke(this.props.elementRef, ref);
+			}
 		},
 	};
 
 	public abstract render(): JSX.Element;
 
-	protected getCommonButtonProps() {
+	public getCommonButtonProps() {
 		const disabled = this.props.disabled || this.props.loading;
 
 		return {
 			...this.props,
 			disabled,
-			onClick: disabled ? undefined : this.props.onClick,
+			onClick: disabled ? null : this.props.onClick,
 			onKeyDown: this.handleKeyDown,
 			onKeyUp: this.handleKeyUp,
 			ref: this.refHandlers.button,
@@ -140,24 +147,24 @@ export abstract class AbstractButton<H extends React.HTMLAttributes<any>> extend
 	// that "Type argument candidate 'KeyboardEvent<T>' is not a valid type
 	// argument because it is not a supertype of candidate
 	// 'KeyboardEvent<HTMLElement>'."
-	protected handleKeyDown = (e: React.KeyboardEvent<any>) => {
-		if (Util.isKeyboardClick(e.which)) {
-			e.preventDefault();
-			if (e.which !== this.currentKeyDown) {
+	protected handleKeyDown = (event: React.KeyboardEvent<any>) => {
+		if (Util.isKeyboardClick(event.which)) {
+			event.preventDefault();
+			if (event.which !== this.currentKeyDown) {
 				this.setState({ isActive: true });
 			}
 		}
-		this.currentKeyDown = e.which;
-		Util.safeInvoke(this.props.onKeyDown, e);
+		this.currentKeyDown = event.which;
+		Util.safeInvoke(this.props.onKeyDown, event);
 	};
 
-	protected handleKeyUp = (e: React.KeyboardEvent<any>) => {
-		if (Util.isKeyboardClick(e.which)) {
+	protected handleKeyUp = (event: React.KeyboardEvent<any>) => {
+		if (!Util.isNull(this.buttonRef) && Util.isKeyboardClick(event.which)) {
 			this.setState({ isActive: false });
 			this.buttonRef.click();
 		}
 		this.currentKeyDown = null;
-		Util.safeInvoke(this.props.onKeyUp, e);
+		Util.safeInvoke(this.props.onKeyUp, event);
 	};
 
 	protected renderChildren(): React.ReactNode {
@@ -165,7 +172,7 @@ export abstract class AbstractButton<H extends React.HTMLAttributes<any>> extend
 
 		return (
 			<React.Fragment>
-				{loading && <Components.Spinner key="loading" size={Icon.SIZE_LARGE} />}
+				{loading && <Components.Spinner key="loading" size={Components.Icon.SIZE_LARGE} />}
 				<Components.Icon key="leftIcon" icon={icon} />
 				{(!Util.isReactNodeEmpty(text) || !Util.isReactNodeEmpty(children)) && (
 					<Styled.Button.Text>

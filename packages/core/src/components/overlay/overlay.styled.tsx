@@ -1,10 +1,10 @@
+import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
 import * as SC from "styled-components";
 import * as Spring from "react-spring";
 
 import * as Common from "~/common";
 import * as Components from "~/components";
-import * as Style from "~/style";
 
 // re-import `styled-components` development mode DOM classnames.
 import styled, { css } from "styled-components";
@@ -22,7 +22,7 @@ import styled, { css } from "styled-components";
  * - [Overlay.Backdrop(ELEMENT)]
  */
 
-interface Overlay {
+export interface Overlay {
 	Container: SC.StyledComponent<
 		Spring.AnimatedComponent<"div">,
 		any,
@@ -36,7 +36,6 @@ interface Overlay {
 		keyof IOverlayBackdropAttrs
 	>;
 	Content: SC.StyledComponent<Spring.AnimatedComponent<"div">, any, IOverlayContentAttrs, keyof IOverlayContentAttrs>;
-	Transition: SC.StyledComponent<Spring.TransitionFn, any, IOverlayTransitionAttrs, keyof IOverlayTransitionAttrs>;
 }
 
 export const Overlay = {} as Overlay;
@@ -45,31 +44,32 @@ export const Overlay = {} as Overlay;
  * [Overlay.Container]
  */
 
-interface IOverlayContainerProps {
+interface IOverlayContainerProps extends SC.ThemeProps<SC.DefaultTheme> {
 	isOpen: boolean;
 	usePortal: boolean;
 }
 
 interface IOverlayContainerAttrs extends IOverlayContainerProps {
-	pointerEvents: string;
-	overflow: string;
+	overflow: Nullable<string>;
+	pointerEvents: Nullable<string>;
 }
 
 const AnimatedOverlayContainer = Spring.animated.div;
 
 Overlay.Container = styled(AnimatedOverlayContainer).attrs(
 	(props: IOverlayContainerProps): IOverlayContainerAttrs => ({
-		pointerEvents: !props.isOpen && "none",
-		overflow: props.isOpen && "hidden",
+		overflow: props.isOpen ? "hidden" : null,
+		pointerEvents: !props.isOpen ? "none" : null,
 		...props,
-	})
+	}),
 )`
-	${Style.Snippets.cover()}
-	${Style.Snippets.flex()}
+	${Protocol.Snippets.cover()}
+	${Protocol.Snippets.flex()}
 
-	z-index: ${Style.ZIndex.OVERLAY};
 	overflow: ${(props) => props.overflow};
-	pointer-events: ${(props) => props.pointerEvents};
+	pointer-events:  ${(props) => props.pointerEvents};
+
+	z-index: ${Protocol.ZIndex.OVERLAY};
 `;
 
 /**
@@ -85,7 +85,7 @@ const AnimatedOverlayContent = Spring.animated("div");
 Overlay.Content = styled(AnimatedOverlayContent).attrs(
 	(props: IOverlayContentProps): IOverlayContentAttrs => ({
 		...props,
-	})
+	}),
 )``;
 
 /**
@@ -101,10 +101,10 @@ const AnimatedOverlayBackdrop = Spring.animated("div");
 Overlay.Backdrop = styled(AnimatedOverlayBackdrop).attrs(
 	(props: IOverlayBackdropProps): IOverlayBackdropAttrs => ({
 		...props,
-	})
+	}),
 )`
-	${Style.Snippets.cover()}
+	${Protocol.Snippets.cover()}
 
-	z-index: ${Style.ZIndex.OVERLAY};
-	background: ${Style.Color.BLACK_2};
+	z-index: ${Protocol.ZIndex.OVERLAY};
+	background: ${Protocol.Color.BLACK_2};
 `;

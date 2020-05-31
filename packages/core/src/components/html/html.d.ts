@@ -1,0 +1,12 @@
+export declare const H1: JSX.Element;
+export declare const H2: JSX.Element;
+export declare const H3: JSX.Element;
+export declare const H4: JSX.Element;
+export declare const H5: JSX.Element;
+export declare const H6: JSX.Element;
+export declare const Blockquote: JSX.Element;
+export declare const Code: JSX.Element;
+export declare const Pre: JSX.Element;
+export declare const Label: JSX.Element;
+export declare const OL: JSX.Element;
+export declare const UL: JSX.Element;

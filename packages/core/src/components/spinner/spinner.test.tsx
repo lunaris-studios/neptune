@@ -1,29 +1,18 @@
+import * as Polished from "polished";
+import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
 import * as Testing from "@testing-library/react";
-import * as Polished from "polished";
 
-import * as Common from "~/common";
-import * as Gatsby from "~/gatsby";
-import * as Redux from "~/redux";
-import * as Style from "~/style";
+import * as BIN from "~/bin";
 
 import { Spinner } from "./spinner";
 
 // @ts-ignore
 import { find } from "styled-components/test-utils";
 
-type WrapperProps = Partial<Redux.Reducers.Theme.State>;
-
 describe("Spinner", () => {
-	const wrapper = (props: WrapperProps = {}) => {
-		const theme = Redux.Reducers.Theme.defaultState;
-		const state = Object.assign({ theme }, props);
-		const element = Gatsby.wrapRootElement({
-			element: <Spinner />,
-			defaultState: state,
-		});
-
-		return Testing.render(element);
+	const wrapper = (props: BIN.INucleusProviderProps = BIN.NucleusProvider.defaultProps) => {
+		return Testing.render(<BIN.NucleusProvider {...props} />);
 	};
 
 	it("renders correctly", () => {
@@ -34,15 +23,15 @@ describe("Spinner", () => {
 
 	it("overflows out of bounds value", () => {});
 
-	it("uses dark colors when <Color.DARK> mode is enabled", () => {
-		const node = wrapper({ binds: { [Style.Theme.MODE]: Style.Mode.LIGHT } });
+	it("uses dark colors when <Scheme.DARK> mode is enabled", () => {
+		const node = wrapper({ theme: { binds: { scheme: Protocol.Scheme.DARK } } });
 		const SpinnerSVGPathHead = find(node.baseElement, Spinner.Styled.Spinner.SVG.Path.Head);
-		expect(SpinnerSVGPathHead).toHaveStyleRule("stroke", Style.Color.BLACK_4);
+		expect(SpinnerSVGPathHead).toHaveStyleRule("stroke", Protocol.Color.BLACK_4);
 	});
 
-	it("uses light colors when <Color.LIGHT> mode is enabled", () => {
-		const node = wrapper({ binds: { [Style.Theme.MODE]: Style.Mode.LIGHT } });
+	it("uses light colors when <Scheme.LIGHT> mode is enabled", () => {
+		const node = wrapper({ theme: { binds: { scheme: Protocol.Scheme.LIGHT } } });
 		const SpinnerSVGPathHead = find(node.baseElement, Spinner.Styled.Spinner.SVG.Path.Head);
-		expect(SpinnerSVGPathHead).toHaveStyleRule("stroke", Style.Color.BLACK_2);
+		expect(SpinnerSVGPathHead).toHaveStyle("stroke", Protocol.Color.BLACK_2);
 	});
 });

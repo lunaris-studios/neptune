@@ -23,11 +23,7 @@ import * as Common from "~/common";
  * An abstract component that Blueprint components can extend
  * in order to add some common functionality like runtime props validation.
  */
-export abstract class AbstractPureComponent<
-	P,
-	S = {},
-	SS = {}
-> extends React.PureComponent<P, S, SS> {
+export abstract class AbstractPureComponent<P, S = {}, SS = {}> extends React.PureComponent<P, S, SS> {
 	// unsafe lifecycle method
 	public componentWillUpdate: never;
 	public componentWillReceiveProps: never;

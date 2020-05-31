@@ -1,12 +1,8 @@
-import * as React from "react";
+import * as Protocol from "@nucleus/protocol";
 import * as SC from "styled-components";
 
-import * as Common from "~/common";
-import * as Components from "~/components";
-import * as Style from "~/style";
-
 // re-import `styled-components` development mode DOM classnames.
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 /**
  * Table of Contents
@@ -32,8 +28,8 @@ export const Divider = {} as Divider;
 interface IDividerElementProps extends SC.ThemeProps<SC.DefaultTheme> {}
 
 interface IDividerElementAttrs extends IDividerElementProps {
-	margin: Style.Space;
-	color: Style.Color;
+	margin: Protocol.Space;
+	color: Protocol.Color;
 }
 
 Divider.Element = styled("div").attrs(
@@ -41,7 +37,7 @@ Divider.Element = styled("div").attrs(
 		margin: props.theme.spaces.TWO,
 		color: props.theme.colors.BLACK_5,
 		...props,
-	})
+	}),
 )`
 	border-bottom-width: 1px;
 	border-bottom-style: solid;
@@ -52,6 +48,5 @@ Divider.Element = styled("div").attrs(
    */
 	border-right-width: 1px;
 	border-right-style: solid;
-	border-right-color: ${(props) => props.color};
-	margin: ${(props) => Style.Snippets.px(props.margin)};
+	margin: ${(props) => Protocol.Snippets.px(props.margin)};
 `;

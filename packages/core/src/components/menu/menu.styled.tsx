@@ -16,12 +16,7 @@ import styled, { css } from "styled-components";
  */
 
 interface Menu {
-	Container: Styled.StyledComponent<
-		"ul",
-		any,
-		IMenuContainerAttrs,
-		keyof IMenuContainerAttrs
-	>;
+	Container: Styled.StyledComponent<"ul", any, IMenuContainerAttrs, keyof IMenuContainerAttrs>;
 }
 
 export const Menu = {} as Menu;
@@ -37,7 +32,7 @@ interface IMenuContainerAttrs extends Partial<IMenuContainerProps> {}
 Menu.Container = styled("ul").attrs(
 	(props: IMenuContainerProps): IMenuContainerAttrs => ({
 		...props,
-	})
+	}),
 )`
 	/* background: $menu-background-color; */
 	/* border-radius: $pt-border-radius; */

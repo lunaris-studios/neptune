@@ -1,14 +1,4 @@
-// import classNames from "classnames";
-// import * as React from "react";
-// import { polyfill } from "react-lifecycles-compat";
-// import { AbstractPureComponent2, Classes } from "../../common";
-// import * as Errors from "../../common/errors";
-// import { DISPLAYNAME_PREFIX, IProps, MaybeElement } from "../../common/props";
-// import { Button } from "../button/buttons";
-// import { H4 } from "../html/html";
-// import { Icon, IconName } from "../icon/icon";
-// import { IBackdropProps, IOverlayableProps, Overlay } from "../overlay/overlay";
-
+import * as Icons from "@nucleus/icons";
 import * as React from "react";
 
 import * as Common from "~/common";
@@ -31,8 +21,9 @@ export interface IDialogProps extends Components.IOverlayableProps, Components.I
 	 * Name of a Blueprint UI icon (or an icon element) to render in the
 	 * dialog's header. Note that the header will only be rendered if `title` is
 	 * provided.
+	 * @default null
 	 */
-	icon?: IconName | MaybeElement;
+	icon?: Nullable<Icons.IconName | Common.MaybeElement>;
 
 	/**
 	 * Whether to show the close button in the dialog's header.

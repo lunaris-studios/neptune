@@ -17,8 +17,6 @@
 import PopperJS from "popper.js";
 import * as Popper from "@popperjs/core";
 
-import * as Style from "~/style";
-
 import * as Props from "./popover.props";
 
 // Popper placement utils
@@ -119,29 +117,29 @@ export const arrowOffsetModifier: Popper.ModifierFn = (data) => {
 export function positionToPlacement(position: Props.PopoverPosition): Popper.Placement {
 	/* istanbul ignore next */
 	switch (position) {
-		case Style.Position.TOP_LEFT:
+		case Protocol.Position.TOP_LEFT:
 			return "top-start";
-		case Style.Position.TOP:
+		case Protocol.Position.TOP:
 			return "top";
-		case Style.Position.TOP_RIGHT:
+		case Protocol.Position.TOP_RIGHT:
 			return "top-end";
-		case Style.Position.RIGHT_TOP:
+		case Protocol.Position.RIGHT_TOP:
 			return "right-start";
-		case Style.Position.RIGHT:
+		case Protocol.Position.RIGHT:
 			return "right";
-		case Style.Position.RIGHT_BOTTOM:
+		case Protocol.Position.RIGHT_BOTTOM:
 			return "right-end";
-		case Style.Position.BOTTOM_RIGHT:
+		case Protocol.Position.BOTTOM_RIGHT:
 			return "bottom-end";
-		case Style.Position.BOTTOM:
+		case Protocol.Position.BOTTOM:
 			return "bottom";
-		case Style.Position.BOTTOM_LEFT:
+		case Protocol.Position.BOTTOM_LEFT:
 			return "bottom-start";
-		case Style.Position.LEFT_BOTTOM:
+		case Protocol.Position.LEFT_BOTTOM:
 			return "left-end";
-		case Style.Position.LEFT:
+		case Protocol.Position.LEFT:
 			return "left";
-		case Style.Position.LEFT_TOP:
+		case Protocol.Position.LEFT_TOP:
 			return "left-start";
 		case "auto":
 		case "auto-start":

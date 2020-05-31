@@ -1,10 +1,8 @@
 import * as React from "react";
 import * as Icons from "@nucleus/icons";
-import * as System from "@nucleus/system";
 
 import * as Common from "~/common";
 import * as Components from "~/components";
-import * as Style from "~/style";
 
 import * as Styled from "./icon.styled";
 
@@ -79,9 +77,7 @@ const defaultProps = Object.freeze<IIconProps>({
 	tagName: "span",
 });
 
-export class Icon extends Components.AbstractPureComponent<
-	IIconProps & React.DOMAttributes<HTMLElement>
-> {
+export class Icon extends Components.AbstractPureComponent<IIconProps & React.DOMAttributes<HTMLElement>> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.Icon`;
 
 	public static readonly SIZE_STANDARD = IconSize.SIZE_STANDARD;
@@ -108,13 +104,7 @@ export class Icon extends Components.AbstractPureComponent<
 
 		return (
 			<Styled.Icon.Container as={tagName} {...htmlprops}>
-				<Styled.Icon.SVG
-					fill={color}
-					data-icon={icon}
-					width={iconSize}
-					height={iconSize}
-					viewBox={viewBox}
-				>
+				<Styled.Icon.SVG fill={color} data-icon={icon} width={iconSize} height={iconSize} viewBox={viewBox}>
 					{title && <Styled.Icon.Title>{title}</Styled.Icon.Title>}
 					{paths}
 				</Styled.Icon.SVG>
@@ -124,8 +114,7 @@ export class Icon extends Components.AbstractPureComponent<
 
 	/** Render `<path>` elements for the given icon name. Returns `null` if name is unknown. */
 	private renderSvgPaths(pathsSize: number, iconName: Icons.IconName): JSX.Element[] | null {
-		const svgPathsRecord =
-			pathsSize === Icon.SIZE_STANDARD ? Icons.IconSvgPaths16 : Icons.IconSvgPaths20;
+		const svgPathsRecord = pathsSize === Icon.SIZE_STANDARD ? Icons.IconSvgPaths16 : Icons.IconSvgPaths20;
 		const pathStrings = svgPathsRecord[iconName];
 		if (pathStrings == null) {
 			return null;

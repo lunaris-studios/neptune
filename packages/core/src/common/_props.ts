@@ -1,6 +1,5 @@
+import * as Protocol from "@nucleus/protocol";
 import * as React from "react";
-
-import * as Style from "~/stlye";
 
 export const DISPLAYNAME_PREFIX = "[NEXUS]";
 
@@ -29,7 +28,7 @@ export type MaybeElement = JSX.Element | false | null | undefined;
 export interface IProps {}
 
 /**
- * Interface for any React Class / Functional component that has children. 
+ * Interface for any React Class / Functional component that has children.
  */
 export interface IChildren {
 	/** */
@@ -38,7 +37,7 @@ export interface IChildren {
 
 export interface IIntentProps {
 	/** Visual intent color to apply to element. */
-	intent?: Style.Intent;
+	intent?: Protocol.Intent;
 }
 
 /**
@@ -53,7 +52,7 @@ export interface IActionProps extends IIntentProps, IProps {
 	// icon?: IconName | MaybeElement;
 
 	/** Click event handler. */
-	onClick?: (event: React.MouseEvent<HTMLElement>) => void;
+	onClick?: Nullable<(event: React.MouseEvent<HTMLElement>) => void>;
 
 	/** Action text. Can be any single React renderable. */
 	text?: React.ReactNode;

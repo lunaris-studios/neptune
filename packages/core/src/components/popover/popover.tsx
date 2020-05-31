@@ -218,7 +218,7 @@ export class Popover extends AbstractPureComponent2<IPopoverProps, IPopoverState
 				>
 					{this.renderPopover}
 				</Popper>
-			</Overlay>
+			</Overlay>,
 		);
 
 		return <Manager>{wrapper}</Manager>;
@@ -316,7 +316,7 @@ export class Popover extends AbstractPureComponent2<IPopoverProps, IPopoverState
 				[Classes.DARK]: this.props.inheritDarkTheme && this.state.hasDarkParent,
 				[Classes.MINIMAL]: this.props.minimal,
 			},
-			this.props.popoverClassName
+			this.props.popoverClassName,
 		);
 
 		return (
@@ -359,7 +359,7 @@ export class Popover extends AbstractPureComponent2<IPopoverProps, IPopoverState
 			Classes.POPOVER_TARGET,
 			{ [Classes.POPOVER_OPEN]: isOpen },
 			targetProps.className,
-			targetClassName
+			targetClassName,
 		);
 		finalTargetProps.ref = referenceProps.ref;
 
@@ -383,7 +383,7 @@ export class Popover extends AbstractPureComponent2<IPopoverProps, IPopoverState
 				...targetProps,
 				...finalTargetProps,
 			},
-			clonedTarget
+			clonedTarget,
 		);
 
 		return <ResizeSensor onResize={this.reposition}>{target}</ResizeSensor>;

@@ -5,9 +5,7 @@ import * as Components from "~/components";
 
 import * as Styled from "./menu.styled";
 
-export interface IMenuProps
-	extends Common.IProps,
-		React.HTMLAttributes<HTMLUListElement> {
+export interface IMenuProps extends Common.IProps, React.HTMLAttributes<HTMLUListElement> {
 	/** Ref handler that receives the HTML `<ul>` element backing this component. */
 	ulRef?: (ref: HTMLUListElement | null) => any;
 }
