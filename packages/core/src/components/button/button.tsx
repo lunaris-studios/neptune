@@ -7,8 +7,6 @@ import * as Util from "~/util";
 import * as Abstract from "./button.abstract";
 import * as Styled from "./button.styled";
 
-export { IButtonProps } from "./button.abstract";
-
 export class Button extends Abstract.AbstractButton<React.ButtonHTMLAttributes<HTMLButtonElement>> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.Button`;
 

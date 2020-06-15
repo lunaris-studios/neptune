@@ -1,7 +1,7 @@
 {
-	"name": "@nucleus/core",
-	"version": "0.0.1-beta.42",
-	"description": "Nucleus Design System",
+	"name": "@neptune/core",
+	"version": "0.0.1",
+	"description": "Neptune Design System",
 	"license": "MIT",
 	"author": "Sam Craig <sam@lunaris.io>",
 	"main": "dist/index.js",
@@ -21,12 +21,13 @@
 		"dev": "run-p \"dev:*\"",
 		"dev:jest": "npm run test:jest-generate-output -- --watch",
 		"dev:rollup": "rollup -cw",
-		"dev:storybook": "start-storybook -p 9009 --ci",
+		"dev:storybook": "start-storybook -p $PACKAGE_CORE_PORT --ci",
 		"dist": "run-s: \"dist:*\"",
 		"dist:bundle": "rollup -c --environment INCLUDE_DEPS,BUILD:production",
 		"lint": "run-p lint:es",
 		"lint:es": "es-lint",
 		"lint-fix": "es-lint --fix",
+		"start": "npm run dev",
 		"test": "run-s test:type-check test:jest",
 		"test:type-check": "tsc",
 		"test:jest": "jest",
@@ -34,8 +35,8 @@
 		"verify": "npm-run-all compile -p dist test lint"
 	},
 	"dependencies": {
-		"@nucleus/icons": "^0.0.1",
-		"@nucleus/protocol": "^0.0.1-beta.42",
+		"@neptune/icons": "^0.0.1",
+		"@neptune/protocol": "^0.0.1",
 		"@popperjs/core": "^2.4.0",
 		"@svgr/webpack": "^5.4.0",
 		"jss": "^10.1.1",
@@ -123,7 +124,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:lunaris-studios/nucleus.git",
+		"url": "git@github.com:lunaris-studios/neptune.git",
 		"directory": "packages/core"
 	}
 }

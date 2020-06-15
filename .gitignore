@@ -23,6 +23,7 @@ public
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 
 # build
 .rpt2_cache/
@@ -33,3 +34,6 @@ dist/
 # https://github.com/whitecolor/yalc#keep-it-out-of-git
 .yalc
 yalc.lock
+
+# nix cache
+.direnv/

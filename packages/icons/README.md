@@ -1,23 +1,23 @@
 > WIP
 
-# Nucleus Icons
+# Neptune Icons
 
 ```sh
-yarn add @nucleus/icons
+yarn add @neptune/icons
 ```
 
 ### Install it
 
-Nucleus Icons is currently under development, but if you'd like to use it anyway:
+Neptune Icons is currently under development, but if you'd like to use it anyway:
 
 ```js
 # npm
-npm install @nucleus/icons
+npm install @neptune/icons
 ```
 
 ```js
 # yarn
-yarn add @nucleus/icons
+yarn add @neptune/icons
 ```
 
 ### Features
@@ -31,7 +31,7 @@ Import style functions:
 
 ```js
 import styled from 'styled-components';
-import { margin, backgroundColor, compose } from '@nucleus/icons';
+import { margin, backgroundColor, compose } from '@neptune/icons';
 
 const styleProps = compose(
   margin,
@@ -56,7 +56,7 @@ import {
   backgroundColor,
   BackgroundColorProps,
   compose,
-} from '@nucleus/icons';
+} from '@neptune/icons';
 
 const styleProps = compose(
   margin,

@@ -1,8 +1,8 @@
 > WIP
 
-# Nucleus
+# Neptune
 
-Nucleus is a Design System built on top of Nucleus System.
+Neptune is a Design System built on top of Neptune System.
 
 ### Develop
 

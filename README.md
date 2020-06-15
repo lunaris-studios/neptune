@@ -1,14 +1,14 @@
 <img height="204" src="https://cloud.githubusercontent.com/assets/464822/20228152/d3f36dc2-a804-11e6-80ff-51ada2d13ea7.png">
 
-# [Nucleus](http://nucleus.lunaris.io/) [![CircleCI](https://circleci.com/gh/palantir/blueprint/tree/develop.svg?style=svg)](https://circleci.com/gh/palantir/workflows/blueprint)
+# [Neptune](http://neptune.lunaris.io/) [![CircleCI](https://circleci.com/gh/palantir/blueprint/tree/develop.svg?style=svg)](https://circleci.com/gh/palantir/workflows/blueprint)
 
-Nucleus is a React-based UI toolkit for the web.
+Neptune is a React-based UI toolkit for the web.
 
 It is optimized for building complex, data-dense web interfaces for _desktop applications_ which run in modern browsers and IE11. This is not a mobile-first UI toolkit.
 
 [**Read the introductory blog post ▸**](https://medium.com/@palantir/scaling-product-design-with-blueprint-25492827bb4a)
 
-[**View the full documentation ▸**](http://nucleus.lunaris.io/docs)
+[**View the full documentation ▸**](http://neptune.lunaris.io/docs)
 
 [**Try it out on CodeSandbox ▸**](https://codesandbox.io/s/blueprint-sandbox-et9xy)
 
@@ -16,7 +16,7 @@ It is optimized for building complex, data-dense web interfaces for _desktop app
 
 ## Changelog
 
-Nucleus's change log and migration guides for major verions live on the repo's [Github wiki](https://github.com/palantir/blueprint/wiki/3.x-Changelog).
+Neptune's change log and migration guides for major verions live on the repo's [Github wiki](https://github.com/palantir/blueprint/wiki/3.x-Changelog).
 
 ## Packages
 
@@ -26,19 +26,19 @@ This repository contains multiple projects in the `packages/` directory that fal
 
 These are the component libraries we publish to NPM.
 
--   [![npm](https://img.shields.io/npm/v/@nucleus/core.svg?label=@nucleus/core)](https://www.npmjs.com/package/@nucleus/core) &ndash; Core styles & components.
--   [![npm](https://img.shields.io/npm/v/@nucleus/datetime.svg?label=@nucleus/datetime)](https://www.npmjs.com/package/@nucleus/datetime) &ndash; Components for interacting with dates and times.
--   [![npm](https://img.shields.io/npm/v/@nucleus/icons.svg?label=@nucleus/icons)](https://www.npmjs.com/package/@nucleus/icons) &ndash; Components for generating and displaying icons.
--   [![npm](https://img.shields.io/npm/v/@nucleus/select.svg?label=@nucleus/select)](https://www.npmjs.com/package/@nucleus/select) &ndash; Components for selecting items from a list.
--   [![npm](https://img.shields.io/npm/v/@nucleus/table.svg?label=@nucleus/table)](https://www.npmjs.com/package/@nucleus/table) &ndash; Scalable interactive table component.
--   [![npm](https://img.shields.io/npm/v/@nucleus/timezone.svg?label=@nucleus/timezone)](https://www.npmjs.com/package/@nucleus/timezone) &ndash; Components for picking timezones.
+-   [![npm](https://img.shields.io/npm/v/@neptune/core.svg?label=@neptune/core)](https://www.npmjs.com/package/@neptune/core) &ndash; Core styles & components.
+-   [![npm](https://img.shields.io/npm/v/@neptune/datetime.svg?label=@neptune/datetime)](https://www.npmjs.com/package/@neptune/datetime) &ndash; Components for interacting with dates and times.
+-   [![npm](https://img.shields.io/npm/v/@neptune/icons.svg?label=@neptune/icons)](https://www.npmjs.com/package/@neptune/icons) &ndash; Components for generating and displaying icons.
+-   [![npm](https://img.shields.io/npm/v/@neptune/select.svg?label=@neptune/select)](https://www.npmjs.com/package/@neptune/select) &ndash; Components for selecting items from a list.
+-   [![npm](https://img.shields.io/npm/v/@neptune/table.svg?label=@neptune/table)](https://www.npmjs.com/package/@neptune/table) &ndash; Scalable interactive table component.
+-   [![npm](https://img.shields.io/npm/v/@neptune/timezone.svg?label=@neptune/timezone)](https://www.npmjs.com/package/@neptune/timezone) &ndash; Components for picking timezones.
 
 ### Applications
 
 These are hosted on GitHub Pages as static web applications:
 
--   `docs-app` &ndash; Documentation site at nucleus.lunaris.io/docs
--   `landing-app` &ndash; Landing page at nucleus.lunaris.io
+-   `docs-app` &ndash; Documentation site at neptune.lunaris.io/docs
+-   `landing-app` &ndash; Landing page at neptune.lunaris.io
 
 These are used as development playground environments:
 
@@ -46,16 +46,16 @@ These are used as development playground environments:
 
 ### Build tooling
 
-These packages define development dependencies and contain build configuration. They adhere to the standard NPM package layout, which allows us to keep clear API boundaries for build configuration and isolate groups of `devDependencies`. They are published to NPM in order to allow other Nucleus-related projects to use this infrastructure outside this monorepo.
+These packages define development dependencies and contain build configuration. They adhere to the standard NPM package layout, which allows us to keep clear API boundaries for build configuration and isolate groups of `devDependencies`. They are published to NPM in order to allow other Neptune-related projects to use this infrastructure outside this monorepo.
 
--   [![npm](https://img.shields.io/npm/v/@nucleus/docs-theme.svg?label=@nucleus/docs-theme)](https://www.npmjs.com/package/@nucleus/docs-theme) &ndash; Documentation theme for [Documentalist](https://github.com/palantir/documentalist) data.
--   [![npm](https://img.shields.io/npm/v/@nucleus/eslint-config.svg?label=@nucleus/eslint-config)](https://www.npmjs.com/package/@nucleus/eslint-config) &ndash; ESLint configuration used in this repo and recommended for Nucleus-related projects
--   [![npm](https://img.shields.io/npm/v/@nucleus/eslint-plugin.svg?label=@nucleus/eslint-plugin)](https://www.npmjs.com/package/@nucleus/eslint-plugin) &ndash; implementations for custom ESLint rules which enforce best practices for Nucleus usage
--   [![npm](https://img.shields.io/npm/v/@nucleus/karma-build-scripts.svg?label=@nucleus/karma-build-scripts)](https://www.npmjs.com/package/@nucleus/karma-build-scripts)
--   [![npm](https://img.shields.io/npm/v/@nucleus/node-build-scripts.svg?label=@nucleus/node-build-scripts)](https://www.npmjs.com/package/@nucleus/node-build-scripts) &ndash; various utility scripts for linting, working with CSS variables, and building icons
--   [![npm](https://img.shields.io/npm/v/@nucleus/test-commons.svg?label=@nucleus/test-commons)](https://www.npmjs.com/package/@nucleus/test-commons) &ndash; various utility functions used in Nucleus test suites
--   [![npm](https://img.shields.io/npm/v/@nucleus/tslint-config.svg?label=@nucleus/tslint-config)](https://www.npmjs.com/package/@nucleus/tslint-config) &ndash; TSLint configuration used in this repo and recommended for Nucleus-related projects (should be installed by `@nucleus/eslint-config`, not directly)
--   [![npm](https://img.shields.io/npm/v/@nucleus/webpack-build-scripts.svg?label=@nucleus/webpack-build-scripts)](https://www.npmjs.com/package/@nucleus/webpack-build-scripts)
+-   [![npm](https://img.shields.io/npm/v/@neptune/docs-theme.svg?label=@neptune/docs-theme)](https://www.npmjs.com/package/@neptune/docs-theme) &ndash; Documentation theme for [Documentalist](https://github.com/palantir/documentalist) data.
+-   [![npm](https://img.shields.io/npm/v/@neptune/eslint-config.svg?label=@neptune/eslint-config)](https://www.npmjs.com/package/@neptune/eslint-config) &ndash; ESLint configuration used in this repo and recommended for Neptune-related projects
+-   [![npm](https://img.shields.io/npm/v/@neptune/eslint-plugin.svg?label=@neptune/eslint-plugin)](https://www.npmjs.com/package/@neptune/eslint-plugin) &ndash; implementations for custom ESLint rules which enforce best practices for Neptune usage
+-   [![npm](https://img.shields.io/npm/v/@neptune/karma-build-scripts.svg?label=@neptune/karma-build-scripts)](https://www.npmjs.com/package/@neptune/karma-build-scripts)
+-   [![npm](https://img.shields.io/npm/v/@neptune/node-build-scripts.svg?label=@neptune/node-build-scripts)](https://www.npmjs.com/package/@neptune/node-build-scripts) &ndash; various utility scripts for linting, working with CSS variables, and building icons
+-   [![npm](https://img.shields.io/npm/v/@neptune/test-commons.svg?label=@neptune/test-commons)](https://www.npmjs.com/package/@neptune/test-commons) &ndash; various utility functions used in Neptune test suites
+-   [![npm](https://img.shields.io/npm/v/@neptune/tslint-config.svg?label=@neptune/tslint-config)](https://www.npmjs.com/package/@neptune/tslint-config) &ndash; TSLint configuration used in this repo and recommended for Neptune-related projects (should be installed by `@neptune/eslint-config`, not directly)
+-   [![npm](https://img.shields.io/npm/v/@neptune/webpack-build-scripts.svg?label=@neptune/webpack-build-scripts)](https://www.npmjs.com/package/@neptune/webpack-build-scripts)
 
 ## Contributing
 
@@ -99,7 +99,7 @@ One exception is `table`: since it has its own dev application, the `dev:table` 
 
 ### Updating documentation
 
-Much of Nucleus's documentation lives inside source code as JSDoc comments in `.tsx` files and KSS markup in `.scss` files. This documentation is extracted and converted into static JSON data using [documentalist](https://github.com/palantir/documentalist/).
+Much of Neptune's documentation lives inside source code as JSDoc comments in `.tsx` files and KSS markup in `.scss` files. This documentation is extracted and converted into static JSON data using [documentalist](https://github.com/palantir/documentalist/).
 
 If you are updating documentation sources (_not_ the docs UI code which lives in `packages/docs-app` or the docs theme in `packages/docs-theme`), you'll need to run `yarn compile` from `packages/docs-data` to see changes reflected in the application. For simplicity, an alias script `yarn docs-data` exists in the root to minimize directory hopping.
 

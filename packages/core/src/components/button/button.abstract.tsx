@@ -1,5 +1,5 @@
-import * as Icons from "@nucleus/icons";
-import * as Protocol from "@nucleus/protocol";
+import * as Icons from "@neptune/icons";
+import * as Protocol from "@neptune/protocol";
 import * as React from "react";
 
 import * as Common from "~/common";
@@ -37,7 +37,7 @@ export interface IButtonProps extends Common.IActionProps {
 	fill: boolean;
 
 	/**
-	 * Name of a Nucleus UI icon (or an icon element) to render before the text.
+	 * Name of a Neptune UI icon (or an icon element) to render before the text.
 	 */
 	icon?: Icons.IconName | Common.MaybeElement;
 
@@ -67,7 +67,7 @@ export interface IButtonProps extends Common.IActionProps {
 	outlined: boolean;
 
 	/**
-	 * Name of a Nucleus UI icon (or an icon element) to render after the text.
+	 * Name of a Neptune UI icon (or an icon element) to render after the text.
 	 */
 	rightIcon?: Icons.IconName | Common.MaybeElement;
 

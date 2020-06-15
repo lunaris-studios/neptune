@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as Icons from "@nucleus/icons";
+import * as Icons from "@neptune/icons";
 
 import * as Common from "~/common";
 import * as Components from "~/components";

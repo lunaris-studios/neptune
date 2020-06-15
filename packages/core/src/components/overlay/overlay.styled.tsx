@@ -1,4 +1,4 @@
-import * as Protocol from "@nucleus/protocol";
+import * as Protocol from "@neptune/protocol";
 import * as React from "react";
 import * as SC from "styled-components";
 import * as Spring from "react-spring";

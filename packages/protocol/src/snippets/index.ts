@@ -1,5 +1,6 @@
 export * from "./_apply";
 export * from "./_border-shadow";
+export * from "./_debug";
 export * from "./_deg";
 export * from "./_flex";
 export * from "./_mini-reset";

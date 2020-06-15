@@ -1,7 +1,7 @@
 {
-	"name": "@nucleus/icons",
+	"name": "@neptune/icons",
 	"version": "0.0.1",
-	"description": "Nucleus Icon Library",
+	"description": "Neptune Icon Library",
 	"author": "Lunaris Studios",
 	"main": "dist/index.js",
 	"module": "dist/index.es.js",
@@ -34,7 +34,7 @@
 		"verify": "npm-run-all compile -p dist test lint"
 	},
 	"devDependencies": {
-		"@nucleus/scripts": "^0.0.1",
+		"@neptune/scripts": "^0.0.1",
 		"@types/jest": "^25.2.3",
 		"@types/svgo": "^1.3.3",
 		"jest": "^26.0.1",
@@ -48,7 +48,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:lunaris-studios/nucleus.git",
+		"url": "git@github.com:lunaris-studios/neptune.git",
 		"directory": "packages/icons"
 	}
 }

@@ -26,7 +26,7 @@ export class Controller {
 /** Transitions */
 
 interface IOverlayContainerTransitionProps extends Component.IOverlayProps {
-	render?: any
+	render?: any;
 }
 
 const defaultOverlayContainerTransitionProps = Object.freeze<IOverlayContainerTransitionProps>({

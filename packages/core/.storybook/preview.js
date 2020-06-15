@@ -7,10 +7,10 @@ import { withTests } from "@storybook/addon-jest";
 
 import { INITIAL_VIEWPORTS } from "@storybook/addon-viewport";
 
-import { NucleusProvider } from "../src/bin/_nucleus-provider";
+import { NeptuneProvider } from "../src/bin/_neptune-provider";
 import results from "../coverage/.jest-test-results.json";
 
-addDecorator((story) => <NucleusProvider>{story()}</NucleusProvider>);
+addDecorator((story) => <NeptuneProvider>{story()}</NeptuneProvider>);
 
 addDecorator(withA11y);
 addDecorator(withKnobs);

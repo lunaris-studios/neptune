@@ -1,4 +1,4 @@
-import * as Protocol from "@nucleus/protocol";
+import * as Protocol from "@neptune/protocol";
 import * as React from "react";
 
 export const DISPLAYNAME_PREFIX = "[NEXUS]";

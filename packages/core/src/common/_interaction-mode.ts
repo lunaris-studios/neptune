@@ -1,4 +1,4 @@
-import * as Protocol from "@nucleus/protocol";
+import * as Protocol from "@neptune/protocol";
 
 /**
  * A nifty little class that maintains event handlers to add a class to the container element

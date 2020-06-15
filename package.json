@@ -1,5 +1,5 @@
 {
-  "name": "nucleus-monorepo",
+  "name": "neptune-monorepo",
   "private": true,
   "workspaces": {
     "packages": [
@@ -17,7 +17,7 @@
     "clean:packages": "lerna run --parallel clean",
     "clean:root": "rm -rf ./*-debug* && rm -rf ./node_modules",
     "dev": "run-s bootstrap dev:core",
-    "dev:core": "lerna run dev --parallel --scope \"@nucleus/{system,core,icons,protocol}\"",
+    "dev:core": "lerna run dev --parallel --scope \"@neptune/{core,icons,nine,protocol,system}\"",
     "dist": "run-s dist:libs dist:apps",
     "dist:libs": "lerna run dist --parallel --scope \"@blueprintjs/{core,datetime,docs-theme,icons,select,table,timezone}\"",
     "dist:apps": "lerna run dist --parallel --scope \"@blueprintjs/{docs-app,landing-app,table-dev-app}\"",
@@ -52,7 +52,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "lint-staged && lerna exec --scope @nucleus/core -- yalc check"
+      "pre-commit": "lint-staged && lerna exec --scope @neptune/core -- yalc check"
     }
   },
   "lint-staged": {
@@ -67,3 +67,4 @@
     ]
   }
 }
+

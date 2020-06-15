@@ -1,0 +1,41 @@
+---
+title: Getting Started
+pinned: 'true'
+description: Neptune is a design system built with Modulz, for Modulz.
+order: 0
+---
+
+<!-- Neptune is a Component Library built on top of [Neptune System](/docs/neptune-system). -->
+
+### Installing Neptune
+
+Neptune is currently under heavy development, but can be installed by running either of these commands:
+
+```
+npm install @neptune/core
+```
+
+<br />
+or
+
+```
+yarn add @neptune/core
+```
+
+### Neptune Provider
+
+Make sure to wrap your app in `NeptuneProvider` to get the default theme:
+
+```js
+import { NeptuneProvider } from '@neptune/core';
+
+const App = () => <NeptuneProvider>Hey there👋</NeptuneProvider>;
+```
+
+### Importing components from Neptune
+
+All components can be imported directly:
+
+```js
+import { Heading, Text, Link } from '@neptune/core';
+```

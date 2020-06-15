@@ -1,4 +1,4 @@
-import * as Icons from "@nucleus/icons";
+import * as Icons from "@neptune/icons";
 import * as React from "react";
 
 import * as Common from "~/common";

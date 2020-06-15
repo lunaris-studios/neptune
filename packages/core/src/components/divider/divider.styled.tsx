@@ -1,4 +1,4 @@
-import * as Protocol from "@nucleus/protocol";
+import * as Protocol from "@neptune/protocol";
 import * as SC from "styled-components";
 
 // re-import `styled-components` development mode DOM classnames.

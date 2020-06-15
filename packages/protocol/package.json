@@ -1,7 +1,7 @@
 {
-	"name": "@nucleus/protocol",
-	"version": "0.0.1-beta.42",
-	"description": "Nucleus Protocol Library",
+	"name": "@neptune/protocol",
+	"version": "0.0.1",
+	"description": "Neptune Protocol Library",
 	"license": "MIT",
 	"author": "Sam Craig <sam@lunaris.io>",
 	"main": "dist/index.js",
@@ -86,7 +86,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git@github.com:lunaris-studios/nucleus.git",
+		"url": "git@github.com:lunaris-studios/neptune.git",
 		"directory": "packages/core"
 	}
 }

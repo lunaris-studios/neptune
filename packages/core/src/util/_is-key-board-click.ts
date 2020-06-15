@@ -1,4 +1,4 @@
-import * as Protocol from "@nucleus/protocol";
+import * as Protocol from "@neptune/protocol";
 
 /** Returns whether the key code is `enter` or `space`, the two keys that can click a button. */
 export function isKeyboardClick(keyCode: number) {

@@ -3,7 +3,7 @@ import * as T from "typography";
 import * as Constants from "~/constants";
 
 /**
- * Default typography theme for Nucleus.
+ * Default typography theme for Neptune.
  */
 export const Typography = Object.freeze<T.TypographyOptions>({
 	baseFontSize: "21px",

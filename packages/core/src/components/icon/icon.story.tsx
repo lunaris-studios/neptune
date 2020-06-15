@@ -1,4 +1,4 @@
-import * as Icon from "@nucleus/icons";
+import * as Icon from "@neptune/icons";
 import * as React from "react";
 import * as Knobs from "@storybook/addon-knobs";
 import * as Actions from "@storybook/addon-actions";

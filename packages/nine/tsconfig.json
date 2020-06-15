@@ -1,0 +1,11 @@
+{
+	"extends": "../../config/tsconfig.base",
+	"include": ["src/**/*"],
+	"exclude": ["node_modules"],
+	"compilerOptions": {
+		"baseUrl": "src",
+		"paths": {
+			"~/*": ["*"]
+		}
+	}
+}

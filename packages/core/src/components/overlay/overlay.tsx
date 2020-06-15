@@ -1,4 +1,4 @@
-import * as Protocol from "@nucleus/protocol";
+import * as Protocol from "@neptune/protocol";
 import * as React from "react";
 import * as Spring from "react-spring";
 
@@ -289,46 +289,6 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 				render={transitionContent}
 			/>
 		);
-
-		// const transitionGroup = (
-		// 	<Spring.Transition
-		// 		items={isOpen}
-		// 		from={{ opacity: 0, transform: "translate3d(0%, -100%, 0%)" }}
-		// 		enter={() => async (next) => {
-		// 			await next({ opacity: 1, transform: "translate3d(100%, 0%, 0%)" });
-		// 		}}
-		// 		leave={() => async (next) => {
-		// 			await next({
-		// 				opacity: 0,
-		// 				transform: "translate3d(100%, 0%, 0%)",
-		// 			});
-		// 		}}
-		// 		onStart={() => {
-		// 			if (isOpen && Util.isFunction(onOpening)) return onOpening();
-		// 			if (!isOpen && Util.isFunction(onClosing)) return onClosing();
-		// 			return;
-		// 		}}
-		// 		onRest={() => {
-		// 			if (isOpen && Util.isFunction(onOpened)) return onOpened();
-		// 			if (!isOpen && Util.isFunction(onClosed)) return onClosed();
-		// 			return;
-		// 		}}
-		// 	>
-		// 		{(style, visible) =>
-		// 			visible && (
-		// 				<Styled.Overlay.Container style={style} onKeyDown={this.handleKeyDown} ref={this.containerRef}>
-		// 					<Styled.Overlay.Content>{children}</Styled.Overlay.Content>
-		// 					{hasBackdrop && (
-		// 						<Styled.Overlay.Backdrop
-		// 							onMouseDown={this.handleBackdropMouseDown}
-		// 							tabIndex={canOutsideClickClose ? 0 : -1}
-		// 						/>
-		// 					)}
-		// 				</Styled.Overlay.Container>
-		// 			)
-		// 		}
-		// 	</Spring.Transition>
-		// );
 
 		return usePortal ? <Components.Portal>{transitionGroup}</Components.Portal> : transitionGroup;
 	}

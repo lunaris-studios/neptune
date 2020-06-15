@@ -165,9 +165,9 @@
     <path d="M29 40l10 12M26 45l10 14" class="cls-41"/>
     <path d="M97 55l-2-2V38l2-2h11l2 2v15l-2 2h-3l3 3h-6v-3zm2-4h7V40h-7zM116 53V38l-1-2h7l-2 2 1 13h6V38l-1-2h6l-1 2v15l-2 2h-11zM139 53l-1-15-1-2h7l-1 2v15l1 2h-7zM155 53V39h-4l-2 2v-6h16v5l-2-1h-4v14l1 2h-6z" class="cls-46"/>
     <path d="M97 53l-2-2V36l2-2h11l2 2v15l-2 2h-3l3 3h-6v-3zm2-4h7V38h-7zM116 51V36l-1-2h7l-2 2 1 13h6V36l-1-2h6l-1 2v15l-2 2h-11zM139 51l-1-15-1-2h7l-1 2v15l1 2h-7zM155 51V37h-4l-2 2v-6h16v5l-2-1h-4v14l1 2h-6z" class="cls-47"/>
-    <text fill="#ffd59f" font-family="KVC-Midgard-Regular,KVC-Midgard" font-size="28" transform="translate(93 53)">
+    <!-- <text fill="#ffd59f" font-family="KVC-Midgard-Regular,KVC-Midgard" font-size="28" transform="translate(93 53)">
       Quit
-    </text>
+    </text> -->
     <path d="M97 53l-2-2V36l2-2h11l2 2v15l-2 2h-3l3 3h-6v-3zm2-4h7V38h-7zM116 51V36l-1-2h7l-2 2 1 13h6V36l-1-2h6l-1 2v15l-2 2h-11zM139 51l-1-15-1-2h7l-1 2v15l1 2h-7zM155 51V37h-4l-2 2v-6h16v5l-2-1h-4v14l1 2h-6z" class="cls-49"/>
   </g>
 </svg>

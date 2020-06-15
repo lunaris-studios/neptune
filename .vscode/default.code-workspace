@@ -9,12 +9,16 @@
 			"path": "../packages/core"
 		},
 		{
-			"name": "[DOCS-APP]",
-			"path": "../packages/docs-app"
+			"name": "[DOCS]",
+			"path": "../packages/docs"
 		},
 		{
 			"name": "[ICONS]",
 			"path": "../packages/icons"
+		},
+		{
+			"name": "[NINE]",
+			"path": "../packages/nine"
 		},
 		{
 			"name": "[PROTOCOL]",
