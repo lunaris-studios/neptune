@@ -24,8 +24,6 @@ ENV_PROJECT_STAGE = $(STAGE)
 NPM_BIN := ./node_modules/.bin
 PATH := $(NPM_BIN):$(GOBIN):$(PATH):$(TMP_BIN)
 
-# === asdf-vm ===-
-
 # Export `.tool-versions` entries as environment variables
 # with the pattern "<DEPENDENCY_NAME>_VERSION=<DEPENDENCY_VERSION>"
 # to the temp file `.tool-versiions.env`
@@ -126,10 +124,6 @@ generate:
 script:
 	@. ./scripts/$(SCRIPT_TYPE)/$(SCRIPT_NAME).sh
 
-.PHONY: asdf
-asdf:
-	@$(MAKE) -s script SCRIPT_TYPE=bash SCRIPT_NAME=asdf
-
 .PHONY: helm
 helm:
 	@$(MAKE) -s script SCRIPT_TYPE=bash SCRIPT_NAME=helm
@@ -140,7 +134,6 @@ gke:
 
 .PHONY: setup
 setup:
-	@$(MAKE) -s asdf
 	@$(MAKE) -s gke
 	@$(MAKE) -s helm
 
