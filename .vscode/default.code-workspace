@@ -50,6 +50,14 @@
 		},
 		"peacock.remoteColor": "#eb5324",
 		"todo-tree.tree.scanMode": "workspace",
-		"search.useGlobalIgnoreFiles": true
+		"search.useGlobalIgnoreFiles": true,
+		"conventionalCommits.scopes": [
+			"core",
+			"docs",
+			"icons",
+			"nine",
+			"protocol",
+			"scripts"
+		]
 	}
 }
