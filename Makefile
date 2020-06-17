@@ -43,6 +43,12 @@ include .env
 .env.yaml: $(SETTINGS_DIR)/$(STAGE).json
 	@(python ./scripts/python/jsontoyaml.py) < $< > $@
 
+# === Niv Dependencies ===
+
+.PHONY: niv-update
+niv-update:
+	niv update
+
 # === Development / Debug ===
 
 .PHONY: skaffold-dev
