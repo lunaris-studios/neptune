@@ -16,6 +16,7 @@ public
 # dotenv
 .env
 .env.*
+.*.env
 
 # misc
 .DS_Store
