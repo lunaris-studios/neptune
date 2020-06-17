@@ -21,7 +21,17 @@ interactive.story = {
 
 export const Vertical = () => {
 	return (
-		<div style={{ display: "flex", justifyContent: "column" }}>
+		<div style={{ display: "flex", justifyContent: "column",  }}>
+			<div />
+			<Divider />
+			<div />
+		</div>
+	)
+}
+
+export const Horizontal = () => {
+	return (
+		<div style={{ display: "flex", justifyContent: "row" }}>
 			<div />
 			<Divider />
 			<div />
