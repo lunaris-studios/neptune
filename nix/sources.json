@@ -5,10 +5,10 @@
         "homepage": "https://github.com/lunaris-studios/lunarispkgs",
         "owner": "lunaris-studios",
         "repo": "lunarispkgs",
-        "rev": "20c79797e24a030e91a6b2f90d68fbf309ad37fb",
-        "sha256": "1wmx6spg4m2y8jss919yxjab2bgac88hs4m24i4jag3x3vp6cz8w",
+        "rev": "d88f249bdceb32a30ede163395365103071832c0",
+        "sha256": "1a8mx1gcm4qzmx2i4yf1z2aj3cv9msk0p2rxhydivvwlwpbshbgd",
         "type": "tarball",
-        "url": "https://github.com/lunaris-studios/lunarispkgs/archive/20c79797e24a030e91a6b2f90d68fbf309ad37fb.tar.gz",
+        "url": "https://github.com/lunaris-studios/lunarispkgs/archive/d88f249bdceb32a30ede163395365103071832c0.tar.gz",
         "url_template": "https://github.com/<owner>/<repo>/archive/<rev>.tar.gz"
     },
     "nixpkgs": {
