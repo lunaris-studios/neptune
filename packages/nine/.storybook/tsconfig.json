@@ -1,15 +1,10 @@
 {
-  "extends": "../../../tsconfig.base",
-  "exclude": [
-    "../node_modules",
-    "../src/gen",
-    "../jest",
-    "../public",
-    "../.cache",
-    "../__mocks__"
-  ],
-  "include": [
-    "../**/*.ts",
-    "../**/*.tsx",
-  ]
+	"extends": "../tsconfig.base",
+	"include": ["../src/**/*"],
+	"compilerOptions": {
+		"baseUrl": "../src",
+		"paths": {
+			"~/*": ["*"]
+		}
+	}
 }
