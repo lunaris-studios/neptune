@@ -1,7 +1,7 @@
 const path = require("path");
 
 module.exports = {
-	stories: ["../src/components/**/*.story.tsx"],
+	stories: ["../src/components/**/*.story.(tsx|mdx)"],
 	addons: [
 		"@storybook/addon-a11y",
 		"@storybook/addon-actions",
@@ -16,18 +16,18 @@ module.exports = {
 			name: "@storybook/preset-typescript",
 			options: {
 				tsLoaderOptions: {
-					configFile: path.resolve(__dirname, "../tsconfig.json"),
+					configFile: path.resolve(__dirname, "./tsconfig.json"),
 				},
 			},
 		},
 		{
-      name: '@storybook/addon-docs',
-      options: {
-        configureJSX: true,
-        babelOptions: {},
-        sourceLoaderOptions: null,
-      },
-    },
+			name: "@storybook/addon-docs",
+			options: {
+				configureJSX: true,
+				babelOptions: {},
+				sourceLoaderOptions: null,
+			},
+		},
 	],
 	webpackFinal: async (config) => {
 		config.resolve.alias = {
@@ -38,34 +38,6 @@ module.exports = {
 			test: /\.svg$/,
 			use: ["@svgr/webpack", "url-loader"],
 		});
-
-		config.module.rules.push({
-			test: /\.story\.tsx$/,
-			loaders: [
-				{
-					loader: require.resolve("@storybook/source-loader"),
-					options: {
-						parser: "typescript",
-						prettierConfig: {
-							arrowParens: "always",
-							bracketSpacing: true,
-							endOfLine: "lf",
-							jsxBracketSameLine: false,
-							jsxSingleQuote: false,
-							printWidth: 120,
-							semi: true,
-							singleQuote: false,
-							tabWidth: 2,
-							trailingComma: "all",
-							useTabs: true,
-						},
-					},
-				},
-			],
-			enforce: "pre",
-		});
-
-		// config.resolve.extensions.push(".ts", ".tsx");
 
 		return config;
 	},
