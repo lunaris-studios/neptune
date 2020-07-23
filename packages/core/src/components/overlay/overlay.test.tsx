@@ -10,9 +10,9 @@ import * as Styled from "./overlay.styled";
 import { find } from "styled-components/test-utils";
 
 describe("Overlay", () => {
-  it("renders correctly", () => {
-    const node = Util.wrapper(<Component.Overlay />);
-    const OverlayContainer = find(node.baseElement, Styled.Overlay.Container);
-    expect(OverlayContainer).toMatchSnapshot();
-  });
+	it("renders correctly", () => {
+		const node = Util.wrapper(<Component.Overlay />);
+		const OverlayContainer = find(node.baseElement, Styled.Overlay.Container);
+		expect(OverlayContainer).toMatchSnapshot();
+	});
 });

@@ -21,8 +21,18 @@ import styled, { css } from "styled-components";
  */
 
 interface Button {
-	Element: SC.StyledComponent<Spring.AnimatedComponent<"button">, any, IButtonElementAttrs, keyof IButtonElementAttrs>;
-	Text: SC.StyledComponent<Spring.AnimatedComponent<"span">, any, IButtonTextAttrs, keyof IButtonTextAttrs>;
+	Element: SC.StyledComponent<
+		Spring.AnimatedComponent<"button">,
+		any,
+		IButtonElementAttrs,
+		keyof IButtonElementAttrs
+	>;
+	Text: SC.StyledComponent<
+		Spring.AnimatedComponent<"span">,
+		any,
+		IButtonTextAttrs,
+		keyof IButtonTextAttrs
+	>;
 }
 
 export const Button = {} as Button;
@@ -31,7 +41,9 @@ export const Button = {} as Button;
  * [Button.Element]
  */
 
-interface IButtonElementProps extends SC.ThemeProps<SC.DefaultTheme>, Component.IButtonProps {}
+interface IButtonElementProps
+	extends SC.ThemeProps<SC.DefaultTheme>,
+		Component.IButtonProps {}
 
 interface IButtonElementAttrs extends IButtonElementProps {}
 
@@ -51,7 +63,9 @@ Button.Element = styled(AniamtedButtonElement).attrs(
  * [Button.Text]
  */
 
-interface IButtonTextProps extends SC.ThemeProps<SC.DefaultTheme>, Component.IButtonProps {}
+interface IButtonTextProps
+	extends SC.ThemeProps<SC.DefaultTheme>,
+		Component.IButtonProps {}
 
 interface IButtonTextAttrs extends IButtonTextProps {}
 

@@ -107,10 +107,9 @@ export const defaultState = Object.freeze<IButtonState>({
 	isActive: false,
 });
 
-export abstract class AbstractButton<H extends React.HTMLAttributes<any>> extends Components.AbstractPureComponent<
-	IButtonProps & H,
-	IButtonState
-> {
+export abstract class AbstractButton<
+	H extends React.HTMLAttributes<any>
+> extends Components.AbstractPureComponent<IButtonProps & H, IButtonState> {
 	static readonly defaultProps: IButtonProps = defaultProps;
 
 	public state: IButtonState = defaultState;
@@ -172,7 +171,9 @@ export abstract class AbstractButton<H extends React.HTMLAttributes<any>> extend
 
 		return (
 			<React.Fragment>
-				{loading && <Components.Spinner key="loading" size={Components.Icon.SIZE_LARGE} />}
+				{loading && (
+					<Components.Spinner key="loading" size={Components.Icon.SIZE_LARGE} />
+				)}
 				<Components.Icon key="leftIcon" icon={icon} />
 				{(!Util.isReactNodeEmpty(text) || !Util.isReactNodeEmpty(children)) && (
 					<Styled.Button.Text>

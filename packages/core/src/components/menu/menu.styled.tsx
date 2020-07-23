@@ -16,7 +16,12 @@ import styled, { css } from "styled-components";
  */
 
 interface Menu {
-	Container: Styled.StyledComponent<"ul", any, IMenuContainerAttrs, keyof IMenuContainerAttrs>;
+	Container: Styled.StyledComponent<
+		"ul",
+		any,
+		IMenuContainerAttrs,
+		keyof IMenuContainerAttrs
+	>;
 }
 
 export const Menu = {} as Menu;

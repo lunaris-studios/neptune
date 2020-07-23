@@ -51,10 +51,18 @@ export class Portal extends React.Component<IPortalProps, IPortalState> {
 		// Only render `children` once this component has mounted in a browser environment, so they are
 		// immediately attached to the DOM tree and can do DOM things like measuring or `autoFocus`.
 		// See long comment on componentDidMount in https://reactjs.org/docs/portals.html#event-bubbling-through-portals
-		if (cannotCreatePortal || typeof document === "undefined" || !this.state.hasMounted || !container) {
+		if (
+			cannotCreatePortal ||
+			typeof document === "undefined" ||
+			!this.state.hasMounted ||
+			!container
+		) {
 			return null;
 		} else {
-			return ReactDOM.createPortal(<Styled.Portal.Container>{children}</Styled.Portal.Container>, container);
+			return ReactDOM.createPortal(
+				<Styled.Portal.Container>{children}</Styled.Portal.Container>,
+				container,
+			);
 		}
 	}
 
@@ -77,7 +85,10 @@ export class Portal extends React.Component<IPortalProps, IPortalState> {
 
 	private unstableRenderNoPortal() {
 		const container = document.createElement("div");
-		container.setAttribute("style", "position: absolute; top: 0; right: 0; bottom: 0; left: 0;");
+		container.setAttribute(
+			"style",
+			"position: absolute; top: 0; right: 0; bottom: 0; left: 0;",
+		);
 		ReactDOM.unstable_renderSubtreeIntoContainer(
 			/* parentComponent */ this,
 			<div>{this.props.children}</div>,

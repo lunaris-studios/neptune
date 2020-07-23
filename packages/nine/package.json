@@ -13,7 +13,7 @@
 	"scripts": {
 		"clean": "npm-run-all clean:* --parallel",
 		"clean:debug": "rm -rf ./npm-debug*",
-		"clean:modules": "rm -rf ./node_modules/",
+		"clean:modules": "rm -rf ./node_modules package-lock.json",
 		"compile": "run-p \"compile:*\"",
 		"compile:storybook": "build-storybook",
 		"compile:jest": "npm run test:jest-generate-output",
@@ -50,6 +50,7 @@
 		"@storybook/addon-a11y": "^5.3.19",
 		"@storybook/addon-actions": "^5.3.19",
 		"@storybook/addon-backgrounds": "^5.3.19",
+		"@storybook/addon-centered": "^5.3.19",
 		"@storybook/addon-docs": "^5.3.19",
 		"@storybook/addon-events": "^5.3.19",
 		"@storybook/addon-jest": "^5.3.19",

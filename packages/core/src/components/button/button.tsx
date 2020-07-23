@@ -7,19 +7,27 @@ import * as Util from "~/util";
 import * as Abstract from "./button.abstract";
 import * as Styled from "./button.styled";
 
-export class Button extends Abstract.AbstractButton<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+export class Button extends Abstract.AbstractButton<
+	React.ButtonHTMLAttributes<HTMLButtonElement>
+> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.Button`;
 
 	public render() {
 		return (
-			<Styled.Button.Element {...Util.removeNonHTMLProps(this.props)} {...this.getCommonButtonProps()} type="button">
+			<Styled.Button.Element
+				{...Util.removeNonHTMLProps(this.props)}
+				{...this.getCommonButtonProps()}
+				type="button"
+			>
 				{this.renderChildren()}
 			</Styled.Button.Element>
 		);
 	}
 }
 
-export class AnchorButton extends Abstract.AbstractButton<React.AnchorHTMLAttributes<HTMLAnchorElement>> {
+export class AnchorButton extends Abstract.AbstractButton<
+	React.AnchorHTMLAttributes<HTMLAnchorElement>
+> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.AnchorButton`;
 
 	public render() {
@@ -27,6 +35,7 @@ export class AnchorButton extends Abstract.AbstractButton<React.AnchorHTMLAttrib
 		const commonProps = this.getCommonButtonProps();
 
 		const AniamtedAnchorElement = Spring.animated("a");
+		const foo = this.props.children;
 		return (
 			<Styled.Button.Element
 				{...Util.removeNonHTMLProps(this.props)}
@@ -44,7 +53,9 @@ export class AnchorButton extends Abstract.AbstractButton<React.AnchorHTMLAttrib
 
 import ButtonSVG, { ReactComponent as ButtonSVGComponent } from "~/assets/svg/button.svg";
 
-export class TestButton extends Abstract.AbstractButton<React.ButtonHTMLAttributes<HTMLButtonElement>> {
+export class TestButton extends Abstract.AbstractButton<
+	React.ButtonHTMLAttributes<HTMLButtonElement>
+> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.TestButton`;
 
 	public render() {

@@ -14,20 +14,20 @@ export const interactive = () => {
 	return <Divider />;
 };
 interactive.story = {
-  parameters: {
-    jest: ["divider.test.tsx"],
-  },
+	parameters: {
+		jest: ["divider.test.tsx"],
+	},
 };
 
 export const Vertical = () => {
 	return (
-		<div style={{ display: "flex", justifyContent: "column",  }}>
+		<div style={{ display: "flex", justifyContent: "column" }}>
 			<div />
 			<Divider />
 			<div />
 		</div>
-	)
-}
+	);
+};
 
 export const Horizontal = () => {
 	return (
@@ -36,5 +36,5 @@ export const Horizontal = () => {
 			<Divider />
 			<div />
 		</div>
-	)
-}
+	);
+};

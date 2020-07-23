@@ -15,7 +15,9 @@ const defaultProps = Object.freeze<INeptuneProviderProps>({
 	typography: Protocol.Typography,
 });
 
-export class NeptuneProvider extends Components.AbstractPureComponent<INeptuneProviderProps> {
+export class NeptuneProvider extends Components.AbstractPureComponent<
+	INeptuneProviderProps
+> {
 	static readonly defaultProps: INeptuneProviderProps = defaultProps;
 
 	public render() {

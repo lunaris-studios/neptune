@@ -19,7 +19,12 @@ import styled, { keyframes } from "styled-components";
  */
 
 interface Spinner {
-	Container: SC.StyledComponent<"div", any, ISpinnerContainerAttrs, keyof ISpinnerContainerAttrs>;
+	Container: SC.StyledComponent<
+		"div",
+		any,
+		ISpinnerContainerAttrs,
+		keyof ISpinnerContainerAttrs
+	>;
 
 	SVG: SpinnerSVG;
 }
@@ -55,7 +60,12 @@ Spinner.Container = styled("div").attrs(
  */
 
 interface SpinnerSVG {
-	Container: SC.StyledComponent<"svg", any, ISpinnerSVGContainerAttrs, keyof ISpinnerSVGContainerAttrs>;
+	Container: SC.StyledComponent<
+		"svg",
+		any,
+		ISpinnerSVGContainerAttrs,
+		keyof ISpinnerSVGContainerAttrs
+	>;
 
 	Shared: SpinnerSVGShared;
 	Path: SpinnerSVGPath;
@@ -100,7 +110,12 @@ Spinner.SVG.Container = styled("svg").attrs(
  */
 
 interface SpinnerSVGShared {
-	Path: SC.StyledComponent<"path", any, ISpinnerSVGSharedPathAttrs, keyof ISpinnerSVGSharedPathAttrs>;
+	Path: SC.StyledComponent<
+		"path",
+		any,
+		ISpinnerSVGSharedPathAttrs,
+		keyof ISpinnerSVGSharedPathAttrs
+	>;
 }
 
 Spinner.SVG.Shared = {} as SpinnerSVGShared;
@@ -159,7 +174,7 @@ const SPINNER_SVG_PATH_HEAD_TRACK = Protocol.bind("scheme", {
 
 Spinner.SVG.Path.Track = styled(Spinner.SVG.Shared.Path).attrs(
 	(props: ISpinnerSVGPathTrackProps): ISpinnerSVGPathTrackAttrs => ({
-		...props
+		...props,
 	}),
 )`
 	stroke: ${SPINNER_SVG_PATH_HEAD_TRACK};
@@ -181,7 +196,7 @@ const SPINNER_SVG_PATH_HEAD_HEAD = Protocol.bind("scheme", {
 // TODO (sam): Add intent / color injection
 Spinner.SVG.Path.Head = styled("path").attrs(
 	(props: ISpinnerSVGPathHeadProps): ISpinnerSVGPathHeadAttrs => ({
-		...props
+		...props,
 	}),
 )`
 	stroke: ${SPINNER_SVG_PATH_HEAD_HEAD};

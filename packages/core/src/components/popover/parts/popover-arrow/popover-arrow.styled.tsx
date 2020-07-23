@@ -23,10 +23,20 @@ import styled, { css } from "styled-components";
  */
 
 interface PopoverArrow {
-	Container: SC.StyledComponent<"div", any, IPopoverArrowContainerAttrs, keyof IPopoverArrowContainerAttrs>;
+	Container: SC.StyledComponent<
+		"div",
+		any,
+		IPopoverArrowContainerAttrs,
+		keyof IPopoverArrowContainerAttrs
+	>;
 
 	SVG: SC.StyledComponent<"svg", any, IPopoverArrowSVGAttrs, keyof IPopoverArrowSVGAttrs>;
-	Path: SC.StyledComponent<"path", any, IPopoverArrowPathAttrs, keyof IPopoverArrowPathAttrs>;
+	Path: SC.StyledComponent<
+		"path",
+		any,
+		IPopoverArrowPathAttrs,
+		keyof IPopoverArrowPathAttrs
+	>;
 }
 
 export const PopoverArrow = {} as PopoverArrow;
@@ -44,7 +54,11 @@ interface IPopoverArrowContainerAttrs extends IPopoverArrowContainerProps {}
 PopoverArrow.Container = styled("div").attrs(
 	(props: IPopoverArrowContainerProps): IPopoverArrowContainerAttrs => ({
 		...props,
-		...(props.arrowProps ? (!isNaN(Number(props.arrowProps.style.left)) ? props.arrowProps.style : {}) : {}),
+		...(props.arrowProps
+			? !isNaN(Number(props.arrowProps.style.left))
+				? props.arrowProps.style
+				: {}
+			: {}),
 	}),
 )`
 	::before {
@@ -60,7 +74,9 @@ PopoverArrow.Container = styled("div").attrs(
  * [PopoverArrow.SVG]
  */
 
-interface IPopoverArrowSVGProps extends SC.ThemeProps<SC.DefaultTheme>, React.SVGAttributes<SVGElement> {
+interface IPopoverArrowSVGProps
+	extends SC.ThemeProps<SC.DefaultTheme>,
+		React.SVGAttributes<SVGElement> {
 	placement: Component.IPopoverArrowProps["placement"];
 }
 
@@ -87,7 +103,9 @@ export enum PopoverArrowPathType {
 	SHADOW = "SHADOW",
 }
 
-interface IPopoverArrowPathProps extends SC.ThemeProps<SC.DefaultTheme>, React.SVGAttributes<SVGElement> {
+interface IPopoverArrowPathProps
+	extends SC.ThemeProps<SC.DefaultTheme>,
+		React.SVGAttributes<SVGElement> {
 	type: PopoverArrowPathType;
 }
 

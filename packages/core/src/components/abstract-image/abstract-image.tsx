@@ -17,7 +17,10 @@ const defaultProps = Object.freeze<IAbstractImageProps>({});
 
 export class AbstractImage<
 	HTMLAttributes extends React.HTMLAttributes<HTMLImageElement>
-> extends Components.AbstractComponent<IAbstractImageProps & HTMLAttributes, IAbstractImageState> {
+> extends Components.AbstractComponent<
+	IAbstractImageProps & HTMLAttributes,
+	IAbstractImageState
+> {
 	constructor(props, context) {
 		super(props);
 		this.state = { dimensions: null };
@@ -35,6 +38,6 @@ export class AbstractImage<
 		const { src } = this.props;
 		const { width, height } = this.state.dimensions;
 
-		return <img {...this.props, width, height} src={src} onLoad={this.onImgLoad}/>;
+		return <img {...(this.props, width, height)} src={src} onLoad={this.onImgLoad} />;
 	}
 }

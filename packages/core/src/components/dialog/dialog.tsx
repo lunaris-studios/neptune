@@ -4,7 +4,10 @@ import * as React from "react";
 import * as Common from "~/common";
 import * as Components from "~/components";
 
-export interface IDialogProps extends Components.IOverlayableProps, Components.IBackdropProps, Common.IProps {
+export interface IDialogProps
+	extends Components.IOverlayableProps,
+		Components.IBackdropProps,
+		Common.IProps {
 	/**
 	 * Toggles the visibility of the overlay and its children.
 	 * This prop is required because the component is controlled.
@@ -63,9 +66,16 @@ export class Dialog extends Components.AbstractPureComponent<IDialogProps, {}> {
 
 	public render() {
 		return (
-			<Components.Overlay {...this.props} className={Classes.OVERLAY_SCROLL_CONTAINER} hasBackdrop={true}>
+			<Components.Overlay
+				{...this.props}
+				className={Classes.OVERLAY_SCROLL_CONTAINER}
+				hasBackdrop={true}
+			>
 				<div className={Classes.DIALOG_CONTAINER}>
-					<div className={classNames(Classes.DIALOG, this.props.className)} style={this.props.style}>
+					<div
+						className={classNames(Classes.DIALOG, this.props.className)}
+						style={this.props.style}
+					>
 						{this.maybeRenderHeader()}
 						{this.props.children}
 					</div>

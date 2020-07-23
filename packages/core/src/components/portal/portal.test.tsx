@@ -10,9 +10,9 @@ import * as Styled from "./portal.styled";
 import { find } from "styled-components/test-utils";
 
 describe("Portal", () => {
-  it("renders correctly", () => {
-    const node = Util.wrapper(<Component.Portal />);
-    const PortalContainer = find(node.baseElement, Styled.Portal.Container);
-    expect(PortalContainer).toMatchSnapshot();
-  });
+	it("renders correctly", () => {
+		const node = Util.wrapper(<Component.Portal />);
+		const PortalContainer = find(node.baseElement, Styled.Portal.Container);
+		expect(PortalContainer).toMatchSnapshot();
+	});
 });

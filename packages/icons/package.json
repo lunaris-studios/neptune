@@ -17,7 +17,7 @@
 	"scripts": {
 		"clean": "npm-run-all clean:* --parallel",
 		"clean:debug": "rm -rf ./npm-debug*",
-		"clean:modules": "rm -rf ./node_modules/",
+		"clean:modules": "rm -rf ./node_modules package-lock.json",
 		"compile": "run-p \"compile:*\"",
 		"compile:icons": "generate-icons-source",
 		"compile:rollup": "rollup -c",

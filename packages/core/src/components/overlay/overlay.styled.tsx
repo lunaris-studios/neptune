@@ -35,7 +35,12 @@ export interface Overlay {
 		IOverlayBackdropAttrs,
 		keyof IOverlayBackdropAttrs
 	>;
-	Content: SC.StyledComponent<Spring.AnimatedComponent<"div">, any, IOverlayContentAttrs, keyof IOverlayContentAttrs>;
+	Content: SC.StyledComponent<
+		Spring.AnimatedComponent<"div">,
+		any,
+		IOverlayContentAttrs,
+		keyof IOverlayContentAttrs
+	>;
 }
 
 export const Overlay = {} as Overlay;

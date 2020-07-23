@@ -17,7 +17,12 @@ import styled, { css } from "styled-components";
  */
 
 export interface Portal {
-	Container: SC.StyledComponent<"div", any, IPortalContainerAttrs, keyof IPortalContainerAttrs>;
+	Container: SC.StyledComponent<
+		"div",
+		any,
+		IPortalContainerAttrs,
+		keyof IPortalContainerAttrs
+	>;
 }
 
 export const Portal = {} as Portal;
@@ -26,7 +31,9 @@ export const Portal = {} as Portal;
  * [Portal.Container]
  */
 
-interface IPortalContainerProps extends SC.ThemeProps<SC.DefaultTheme>, React.HTMLProps<HTMLDivElement> {}
+interface IPortalContainerProps
+	extends SC.ThemeProps<SC.DefaultTheme>,
+		React.HTMLProps<HTMLDivElement> {}
 
 interface IPortalContainerAttrs extends IPortalContainerProps {}
 

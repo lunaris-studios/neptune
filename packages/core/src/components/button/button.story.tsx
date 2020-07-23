@@ -12,5 +12,5 @@ export default {
 
 export const interactive = () => {
 	const label = Knobs.text("Label", "Quit");
-	return <TestButton onClick={Actions.action("TestButton")} text={label}/>;
+	return <TestButton onClick={Actions.action("TestButton")} text={label} />;
 };

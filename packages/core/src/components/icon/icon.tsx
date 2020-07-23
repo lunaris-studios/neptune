@@ -77,7 +77,9 @@ const defaultProps = Object.freeze<IIconProps>({
 	tagName: "span",
 });
 
-export class Icon extends Components.AbstractPureComponent<IIconProps & React.DOMAttributes<HTMLElement>> {
+export class Icon extends Components.AbstractPureComponent<
+	IIconProps & React.DOMAttributes<HTMLElement>
+> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.Icon`;
 
 	public static readonly SIZE_STANDARD = IconSize.SIZE_STANDARD;
@@ -93,10 +95,19 @@ export class Icon extends Components.AbstractPureComponent<IIconProps & React.DO
 			return icon;
 		}
 
-		const { color, htmlTitle, iconSize, intent, title = icon, tagName, ...htmlprops } = this.props;
+		const {
+			color,
+			htmlTitle,
+			iconSize,
+			intent,
+			title = icon,
+			tagName,
+			...htmlprops
+		} = this.props;
 
 		// choose which pixel grid is most appropriate for given icon size
-		const pixelGridSize = iconSize! >= Icon.SIZE_LARGE ? Icon.SIZE_LARGE : Icon.SIZE_STANDARD;
+		const pixelGridSize =
+			iconSize! >= Icon.SIZE_LARGE ? Icon.SIZE_LARGE : Icon.SIZE_STANDARD;
 		// render path elements, or nothing if icon name is unknown.
 		const paths = this.renderSvgPaths(pixelGridSize, icon);
 
@@ -104,7 +115,13 @@ export class Icon extends Components.AbstractPureComponent<IIconProps & React.DO
 
 		return (
 			<Styled.Icon.Container as={tagName} {...htmlprops}>
-				<Styled.Icon.SVG fill={color} data-icon={icon} width={iconSize} height={iconSize} viewBox={viewBox}>
+				<Styled.Icon.SVG
+					fill={color}
+					data-icon={icon}
+					width={iconSize}
+					height={iconSize}
+					viewBox={viewBox}
+				>
 					{title && <Styled.Icon.Title>{title}</Styled.Icon.Title>}
 					{paths}
 				</Styled.Icon.SVG>
@@ -113,8 +130,12 @@ export class Icon extends Components.AbstractPureComponent<IIconProps & React.DO
 	}
 
 	/** Render `<path>` elements for the given icon name. Returns `null` if name is unknown. */
-	private renderSvgPaths(pathsSize: number, iconName: Icons.IconName): JSX.Element[] | null {
-		const svgPathsRecord = pathsSize === Icon.SIZE_STANDARD ? Icons.IconSvgPaths16 : Icons.IconSvgPaths20;
+	private renderSvgPaths(
+		pathsSize: number,
+		iconName: Icons.IconName,
+	): JSX.Element[] | null {
+		const svgPathsRecord =
+			pathsSize === Icon.SIZE_STANDARD ? Icons.IconSvgPaths16 : Icons.IconSvgPaths20;
 		const pathStrings = svgPathsRecord[iconName];
 		if (pathStrings == null) {
 			return null;

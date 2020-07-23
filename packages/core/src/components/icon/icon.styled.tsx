@@ -21,7 +21,12 @@ import styled, { css } from "styled-components";
  */
 
 interface Icon {
-	Container: SC.StyledComponent<"div", any, IIconContainerAttrs, keyof IIconContainerAttrs>;
+	Container: SC.StyledComponent<
+		"div",
+		any,
+		IIconContainerAttrs,
+		keyof IIconContainerAttrs
+	>;
 
 	SVG: SC.StyledComponent<"svg", any, IIconSVGAttrs, keyof IIconSVGAttrs>;
 	Title: SC.StyledComponent<"desc", any, IIconTitleAttrs, keyof IIconTitleAttrs>;

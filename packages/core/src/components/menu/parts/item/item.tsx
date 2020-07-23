@@ -83,7 +83,9 @@ export interface IMenuItemProps extends IActionProps, ILinkProps {
 	textClassName?: string;
 }
 
-export class MenuItem extends AbstractPureComponent2<IMenuItemProps & React.AnchorHTMLAttributes<HTMLAnchorElement>> {
+export class MenuItem extends AbstractPureComponent2<
+	IMenuItemProps & React.AnchorHTMLAttributes<HTMLAnchorElement>
+> {
 	static readonly defaultProps: IMenuItemProps = {
 		disabled: false,
 		multiline: false,

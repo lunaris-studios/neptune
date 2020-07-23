@@ -3,7 +3,8 @@ import { Elevation } from "./_elevation";
 import { Intent } from "./_intent";
 import { Position } from "./_position";
 
-export const NS = process.env.BLUEPRINT_NAMESPACE || process.env.REACT_APP_BLUEPRINT_NAMESPACE || "bp3";
+export const NS =
+	process.env.BLUEPRINT_NAMESPACE || process.env.REACT_APP_BLUEPRINT_NAMESPACE || "bp3";
 
 // modifiers
 export const ACTIVE = `${NS}-active`;

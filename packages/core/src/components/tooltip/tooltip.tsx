@@ -30,7 +30,9 @@ export interface ITooltipProps extends IPopoverSharedProps, Common.IIntentProps 
 	 * Tooltips do not support click interactions.
 	 * @default PopoverInteractionKind.HOVER_TARGET_ONLY
 	 */
-	interactionKind?: typeof PopoverInteractionKind.HOVER | typeof PopoverInteractionKind.HOVER_TARGET_ONLY;
+	interactionKind?:
+		| typeof PopoverInteractionKind.HOVER
+		| typeof PopoverInteractionKind.HOVER_TARGET_ONLY;
 
 	/**
 	 * Indicates how long (in milliseconds) the tooltip's appear/disappear
@@ -65,7 +67,11 @@ export class Tooltip extends Components.AbstractPureComponent<ITooltipProps, {}>
 
 	public render() {
 		const { children, intent, popoverClassName, ...restProps } = this.props;
-		const classes = classNames(Classes.TOOLTIP, Classes.intentClass(intent), popoverClassName);
+		const classes = classNames(
+			Classes.TOOLTIP,
+			Classes.intentClass(intent),
+			popoverClassName,
+		);
 
 		return (
 			<Components.Popover

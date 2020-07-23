@@ -21,7 +21,12 @@ import styled, { css } from "styled-components";
 interface HTML {
 	Header: SC.StyledComponent<"h1", any, IHTMLHeaderAttrs, keyof IHTMLHeaderAttrs>;
 
-	Blockquote: SC.StyledComponent<"blockquote", any, IHTMLBlockquoteAttrs, keyof IHTMLBlockquoteAttrs>;
+	Blockquote: SC.StyledComponent<
+		"blockquote",
+		any,
+		IHTMLBlockquoteAttrs,
+		keyof IHTMLBlockquoteAttrs
+	>;
 	Code: SC.StyledComponent<"code", any, IHTMLCodeAttrs, keyof IHTMLCodeAttrs>;
 	Pre: SC.StyledComponent<"pre", any, IHTMLPreAttrs, keyof IHTMLPreAttrs>;
 	Label: SC.StyledComponent<"label", any, IHTMLLabelAttrs, keyof IHTMLLabelAttrs>;

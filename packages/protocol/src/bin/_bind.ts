@@ -1,6 +1,9 @@
 import * as SC from "styled-components";
 
-type ThemedStyledProps<TProps extends object = {}> = SC.ThemedStyledProps<TProps, SC.DefaultTheme>;
+type ThemedStyledProps<TProps extends object = {}> = SC.ThemedStyledProps<
+	TProps,
+	SC.DefaultTheme
+>;
 
 type Binds = SC.DefaultTheme["binds"];
 type BindName = keyof Binds;
@@ -40,7 +43,10 @@ function getBindValue<TBindName extends BindName>(
  * @param {BindKey} bindName - String matching one of the keys in your <BindProvider> theme.
  * @param {BindMap} bindValues - An object where one of the keys will be selected by the value provided to <BindProvider> theme.
  */
-export function bind<TBindName extends BindName>(bindName: TBindName, bindValues: BindMap<TBindName>): Bind {
+export function bind<TBindName extends BindName>(
+	bindName: TBindName,
+	bindValues: BindMap<TBindName>,
+): Bind {
 	return function (props: ThemedStyledProps<any>): BindValue {
 		return getBindValue(bindName, props, bindValues);
 	};

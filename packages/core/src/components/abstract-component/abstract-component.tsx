@@ -20,10 +20,14 @@ import * as Util from "~/util";
 import * as Common from "~/common";
 
 /**
- * An abstract component that Blueprint components can extend
+ * An abstract component that Neptune components can extend
  * in order to add some common functionality like runtime props validation.
  */
-export abstract class AbstractComponent<P, S = {}, SS = {}> extends React.Component<P, S, SS> {
+export abstract class AbstractComponent<P, S = {}, SS = {}> extends React.Component<
+	P,
+	S,
+	SS
+> {
 	// unsafe lifecycle methods
 	public componentWillUpdate: never;
 	public componentWillReceiveProps: never;

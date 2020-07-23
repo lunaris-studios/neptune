@@ -10,9 +10,9 @@ import * as Styled from "./button.styled";
 import { find } from "styled-components/test-utils";
 
 describe("Button", () => {
-  it("renders correctly", () => {
-    const node = Util.wrapper(<Component.Button />);
-    const ButtonContainer = find(node.baseElement, Styled.Button.Element);
-    expect(ButtonContainer).toMatchSnapshot();
-  });
+	it("renders correctly", () => {
+		const node = Util.wrapper(<Component.Button />);
+		const ButtonContainer = find(node.baseElement, Styled.Button.Element);
+		expect(ButtonContainer).toMatchSnapshot();
+	});
 });

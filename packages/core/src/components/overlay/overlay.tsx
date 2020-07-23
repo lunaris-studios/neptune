@@ -238,7 +238,10 @@ const defaultState = Object.freeze<IOverlayState>({
 	hasEverOpened: false,
 });
 
-export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOverlayState> {
+export class Overlay extends Components.AbstractPureComponent<
+	IOverlayProps,
+	IOverlayState
+> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.Overlay`;
 
 	static readonly defaultProps: IOverlayProps = defaultProps;
@@ -290,7 +293,11 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 			/>
 		);
 
-		return usePortal ? <Components.Portal>{transitionGroup}</Components.Portal> : transitionGroup;
+		return usePortal ? (
+			<Components.Portal>{transitionGroup}</Components.Portal>
+		) : (
+			transitionGroup
+		);
 	}
 
 	public componentDidMount() {
@@ -330,7 +337,11 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 	}
 
 	private overlayWillClose() {
-		document.removeEventListener("focus", this.handleDocumentFocus, /* useCapture */ true);
+		document.removeEventListener(
+			"focus",
+			this.handleDocumentFocus,
+			/* useCapture */ true,
+		);
 		document.removeEventListener("mousedown", this.handleDocumentClick);
 	}
 
@@ -379,11 +390,17 @@ export class Overlay extends Components.AbstractPureComponent<IOverlayProps, IOv
 	private focusOverlay() {
 		// container ref may be undefined between component mounting and Portal rendering
 		// activeElement may be undefined in some rare cases in IE
-		if (this.containerRef.current == null || document.activeElement == null || !this.props.isOpen) {
+		if (
+			this.containerRef.current == null ||
+			document.activeElement == null ||
+			!this.props.isOpen
+		) {
 			return;
 		}
 
-		const isFocusOutsideModal = !this.containerRef.current.contains(document.activeElement);
+		const isFocusOutsideModal = !this.containerRef.current.contains(
+			document.activeElement,
+		);
 		if (isFocusOutsideModal) {
 			this.containerRef.current.focus();
 		}

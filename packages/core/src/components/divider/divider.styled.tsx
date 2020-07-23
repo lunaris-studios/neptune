@@ -16,7 +16,12 @@ import styled from "styled-components";
  */
 
 interface Divider {
-	Element: SC.StyledComponent<"div", any, IDividerElementAttrs, keyof IDividerElementAttrs>;
+	Element: SC.StyledComponent<
+		"div",
+		any,
+		IDividerElementAttrs,
+		keyof IDividerElementAttrs
+	>;
 }
 
 export const Divider = {} as Divider;
@@ -44,7 +49,7 @@ const DIVIDER_ELEMENT_OPACITY = Protocol.bind("scheme", {
 const defaultDividerElementProps = Object.freeze<IDividerElementProps>({
 	color: Protocol.Color.BLACK_0,
 	// TODO (sam): Fix parent extension of <SC.ThemeProps>
-	theme: {} as Protocol.Theme
+	theme: {} as Protocol.Theme,
 });
 
 Divider.Element = styled("div").attrs(

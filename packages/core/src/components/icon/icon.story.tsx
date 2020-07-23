@@ -15,7 +15,7 @@ export const interactive = () => {
 	return <Component.Icon icon={Icon.IconNames.ADD} />;
 };
 interactive.story = {
-  parameters: {
-    jest: ["icon.test.tsx"],
-  },
+	parameters: {
+		jest: ["icon.test.tsx"],
+	},
 };

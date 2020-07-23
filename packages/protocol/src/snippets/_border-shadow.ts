@@ -3,7 +3,11 @@ import * as Constants from "~/constants";
 import { value } from "./_value";
 import { transparentize } from "polished";
 
-export function borderShadow(alpha: number, color: string = Constants.Color.BLACK_1, size: string | number = "1px") {
+export function borderShadow(
+	alpha: number,
+	color: string = Constants.Color.BLACK_1,
+	size: string | number = "1px",
+) {
 	size = value(size, Constants.Unit.PX);
 	color = transparentize(alpha, color);
 

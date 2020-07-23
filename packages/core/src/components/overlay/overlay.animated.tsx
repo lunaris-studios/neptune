@@ -17,7 +17,9 @@ export interface IContainerTransition {
 	transform: string;
 }
 
-export interface IContainerTransitionOptions extends Component.IOverlayProps, Component.IOverlayLifecycleProps {}
+export interface IContainerTransitionOptions
+	extends Component.IOverlayProps,
+		Component.IOverlayLifecycleProps {}
 
 export class Controller {
 	public controller: Spring.Controller = new Spring.Controller();
@@ -29,11 +31,15 @@ interface IOverlayContainerTransitionProps extends Component.IOverlayProps {
 	render?: any;
 }
 
-const defaultOverlayContainerTransitionProps = Object.freeze<IOverlayContainerTransitionProps>({
+const defaultOverlayContainerTransitionProps = Object.freeze<
+	IOverlayContainerTransitionProps
+>({
 	isOpen: false,
 });
 
-export class OverlayContainerTransition extends React.Component<IOverlayContainerTransitionProps> {
+export class OverlayContainerTransition extends React.Component<
+	IOverlayContainerTransitionProps
+> {
 	public static displayName = `${Common.DISPLAYNAME_PREFIX}.OverlayContainerTransition`;
 
 	public readonly defaultProps: IOverlayContainerTransitionProps = defaultOverlayContainerTransitionProps;

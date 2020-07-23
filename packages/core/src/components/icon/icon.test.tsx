@@ -10,9 +10,9 @@ import * as Styled from "./icon.styled";
 import { find } from "styled-components/test-utils";
 
 describe("Icon", () => {
-  it("renders correctly", () => {
-    const node = Util.wrapper(<Component.Icon />);
-    const IconContainer = find(node.baseElement, Styled.Icon.Container);
-    expect(IconContainer).toMatchSnapshot();
-  });
+	it("renders correctly", () => {
+		const node = Util.wrapper(<Component.Icon />);
+		const IconContainer = find(node.baseElement, Styled.Icon.Container);
+		expect(IconContainer).toMatchSnapshot();
+	});
 });

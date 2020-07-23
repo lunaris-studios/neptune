@@ -7,7 +7,10 @@ import * as BIN from "~/bin";
 /**
  * Wrapper for testing shimmed changes for the <NeptuneProvider>
  */
-export function wrapper(ui: React.ReactElement, shimmedBinds?: Partial<Protocol.Theme["binds"]>) {
+export function wrapper(
+	ui: React.ReactElement,
+	shimmedBinds?: Partial<Protocol.Theme["binds"]>,
+) {
 	const binds = Object.freeze<Protocol.Theme["binds"]>({
 		...BIN.NeptuneProvider.defaultProps.theme.binds,
 		...shimmedBinds,

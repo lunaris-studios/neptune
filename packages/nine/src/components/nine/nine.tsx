@@ -103,7 +103,9 @@ export class Nine extends Neptune.AbstractPureComponent<INineProps, INineState> 
 
 					{/* Row Two */}
 					<Styled.Nine.Section coordinates={Coordinate.WEST} />
-					<Styled.Nine.Section coordinates={Coordinate.CENTER}>{children}</Styled.Nine.Section>
+					<Styled.Nine.Section coordinates={Coordinate.CENTER}>
+						{children}
+					</Styled.Nine.Section>
 					<Styled.Nine.Section coordinates={Coordinate.EAST} />
 
 					{/* Row Three */}

@@ -14,8 +14,7 @@ export const interactive = () => {
 	return <Spinner />;
 };
 interactive.story = {
-  parameters: {
-    jest: ["spinner.test.tsx"],
-  },
+	parameters: {
+		jest: ["spinner.test.tsx"],
+	},
 };
-

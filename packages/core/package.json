@@ -13,7 +13,7 @@
 	"scripts": {
 		"clean": "npm-run-all clean:* --parallel",
 		"clean:debug": "rm -rf ./npm-debug*",
-		"clean:modules": "rm -rf ./node_modules/",
+		"clean:modules": "rm -rf ./node_modules package-lock.json",
 		"compile": "run-p \"compile:*\"",
 		"compile:storybook": "build-storybook",
 		"compile:jest": "npm run test:jest-generate-output",
@@ -37,6 +37,7 @@
 	"dependencies": {
 		"@neptune/icons": "^0.0.1",
 		"@neptune/protocol": "^0.0.1",
+		"@neptune/sensors": "^0.0.1",
 		"@popperjs/core": "^2.4.0",
 		"@svgr/webpack": "^5.4.0",
 		"jss": "^10.1.1",

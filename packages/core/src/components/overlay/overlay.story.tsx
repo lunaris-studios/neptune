@@ -14,7 +14,7 @@ export const interactive = () => {
 	return <Component.Overlay />;
 };
 interactive.story = {
-  parameters: {
-    jest: ["overlay.test.tsx"],
-  },
+	parameters: {
+		jest: ["overlay.test.tsx"],
+	},
 };

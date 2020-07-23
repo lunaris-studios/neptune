@@ -9,7 +9,9 @@ import * as Errors from "./spinner.errors";
 
 // see http://stackoverflow.com/a/18473154/3124288 for calculating arc path
 const R = 45;
-const SPINNER_TRACK = `M 50,50 m 0,-${R} a ${R},${R} 0 1 1 0,${R * 2} a ${R},${R} 0 1 1 0,-${R * 2}`;
+const SPINNER_TRACK = `M 50,50 m 0,-${R} a ${R},${R} 0 1 1 0,${
+	R * 2
+} a ${R},${R} 0 1 1 0,-${R * 2}`;
 
 // unitless total length of SVG path, to which stroke-dash* properties are relative.
 // https://developer.mozilla.org/en-US/docs/Web/SVG/Attribute/pathLength
@@ -85,8 +87,12 @@ export class Spinner extends Components.AbstractPureComponent<ISpinnerProps, {}>
 		const size = this.getSize();
 
 		// keep spinner track width consistent at all sizes (down to about 10px).
-		const strokeWidth = Math.min(MIN_STROKE_WIDTH, (STROKE_WIDTH * Spinner.SIZE_LARGE) / size);
-		const strokeOffset = PATH_LENGTH - PATH_LENGTH * (value == null ? 0.25 : Util.clamp(value, 0, 1));
+		const strokeWidth = Math.min(
+			MIN_STROKE_WIDTH,
+			(STROKE_WIDTH * Spinner.SIZE_LARGE) / size,
+		);
+		const strokeOffset =
+			PATH_LENGTH - PATH_LENGTH * (value == null ? 0.25 : Util.clamp(value, 0, 1));
 
 		const isSpinning = Boolean(value != null);
 

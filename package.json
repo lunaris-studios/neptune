@@ -15,22 +15,30 @@
     "compile": "lerna run compile",
     "clean": "npm-run-all clean:packages clean:root",
     "clean:packages": "lerna run --parallel clean",
-    "clean:root": "rm -rf ./*-debug* && rm -rf ./node_modules",
-    "dev": "run-s bootstrap dev:core",
-    "dev:core": "lerna run dev --parallel --scope \"@neptune/{core,icons,nine,protocol,system}\"",
+    "clean:root": "rm -rf ./*-debug* && rm -rf ./node_modules package-lock.json",
+    "dev:core": "lerna bootstrap && lerna run dev --parallel --scope \"@neptune/{core,icons,nine,protocol,sensors,universal}\" --stream",
+    "dev:docs": "lerna bootstrap && lerna run dev --parallel --scope \"@neptune/{docs,sensors,universal,util}\" --stream",
+    "dev:sensors": "lerna bootstrap && lerna run dev --parallel --scope \"@neptune/{sensors,universal,util}\" --stream",
     "dist": "run-s dist:libs dist:apps",
-    "dist:libs": "lerna run dist --parallel --scope \"@blueprintjs/{core,datetime,docs-theme,icons,select,table,timezone}\"",
-    "dist:apps": "lerna run dist --parallel --scope \"@blueprintjs/{docs-app,landing-app,table-dev-app}\"",
+    "dist:core": "lerna run dist --parallel --scope \"@neptune/{core,icons,nine,protocol,docs}\"",
+    "dist:docs": "lerna run dist --parallel --scope \"@neptune/{core,docs,protocol,sensors,universal}\"",
+    "dist:sensors": "lerna run dist --parallel --scope \"@neptune/{sensors,universal}\"",
     "format": "prettier --write \"./**/*.{ts,tsx}\"",
     "format-check": "prettier --check \"./**/*.{ts,tsx}\"",
+    "generate": "lerna run --parallel generate",
     "link": "lerna link",
     "lint": "lerna run --parallel lint",
-    "lint-fix": "lerna run --parallel lint-fix",
-    "start": "npm run dev",
+		"lint-fix": "lerna run --parallel lint-fix",
+		"run": "lerna run",
+    "start": "npm run start:core",
+    "start:core": "run-s bootstrap dev:core",
+    "start:docs": "run-s bootstrap dev:docs",
     "test": "lerna run --parallel test",
     "verify": "npm-run-all -s compile dist:libs dist:apps -p test lint"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^1.14.0",
+    "@graphql-codegen/typescript": "^1.15.4",
     "@types/history": "^4.7.6",
     "@typescript-eslint/eslint-plugin": "^3.0.1",
     "@typescript-eslint/parser": "^3.0.1",
@@ -65,6 +73,9 @@
       "prettier --write",
       "git add"
     ]
+  },
+  "dependencies": {
+    "gatsby-plugin-typescript": "^2.4.6",
+    "graphql": "^15.1.0"
   }
 }
-

@@ -34,8 +34,12 @@ interface IconMetadata {
 	content?: string;
 }
 
-const ICONS_METADATA: IconMetadata[] = IconMetadata.sort((a, b) => a.iconName.localeCompare(b.iconName));
-const ICONS_WITH_FONT_SUPPORT: IconMetadata[] = ICONS_METADATA.filter((icon) => typeof icon.content === "string");
+const ICONS_METADATA: IconMetadata[] = IconMetadata.sort((a, b) =>
+	a.iconName.localeCompare(b.iconName),
+);
+const ICONS_WITH_FONT_SUPPORT: IconMetadata[] = ICONS_METADATA.filter(
+	(icon) => typeof icon.content === "string",
+);
 const GENERATED_SRC_DIR: string = Path.resolve(process.cwd(), "./src/generated");
 
 if (!FS.existsSync(GENERATED_SRC_DIR)) {
@@ -47,21 +51,26 @@ writeLinesToFile(
 	"_icon-map.scss",
 	'@import "icon-variables";',
 	"$icons: (",
-	...ICONS_WITH_FONT_SUPPORT.map((icon) => `  "${icon.iconName}": ${toSassVariable(icon)},`),
+	...ICONS_WITH_FONT_SUPPORT.map(
+		(icon) => `  "${icon.iconName}": ${toSassVariable(icon)},`,
+	),
 	");",
 );
 
 // list out content strings for icons with font support
 writeLinesToFile(
 	"_icon-variables.scss",
-	...ICONS_WITH_FONT_SUPPORT.map((icon) => `${toSassVariable(icon)}: "${icon.content!}";`),
+	...ICONS_WITH_FONT_SUPPORT.map(
+		(icon) => `${toSassVariable(icon)}: "${icon.content!}";`,
+	),
 );
 
 // map ENUM_NAME to unicode character
 writeLinesToFile(
 	"icon-content.ts",
 	...ICONS_WITH_FONT_SUPPORT.map(
-		(icon) => `export const ${toEnumName(icon)} = "${icon.content!.replace("\\", "\\u")}";`,
+		(icon) =>
+			`export const ${toEnumName(icon)} = "${icon.content!.replace("\\", "\\u")}";`,
 	),
 );
 
@@ -69,7 +78,9 @@ writeLinesToFile(
 // so that we can reference their SVG paths
 writeLinesToFile(
 	"icon-names.ts",
-	...ICONS_METADATA.map((icon) => `export const ${toEnumName(icon)} = "${icon.iconName}";`),
+	...ICONS_METADATA.map(
+		(icon) => `export const ${toEnumName(icon)} = "${icon.iconName}";`,
+	),
 );
 
 (async () => {
@@ -125,7 +136,10 @@ function toEnumName(icon: IconMetadata): string {
 async function buildPathsObject(objectName: string, size: number): Promise<string[]> {
 	return Promise.all(
 		ICONS_METADATA.map(async (icon) => {
-			const filepath = Path.resolve(__dirname, `../../resources/icons/${size}px/${icon.iconName}.svg`);
+			const filepath = Path.resolve(
+				__dirname,
+				`../../resources/icons/${size}px/${icon.iconName}.svg`,
+			);
 			const svg = FS.readFileSync(filepath, "utf-8");
 			const pathStrings = await svgo
 				.optimize(svg, { path: filepath })
