@@ -1,6 +1,6 @@
 {
 	"name": "@neptune/core",
-	"version": "0.0.1",
+	"version": "0.0.2",
 	"description": "Neptune Design System",
 	"license": "MIT",
 	"author": "Sam Craig <sam@lunaris.io>",
@@ -35,9 +35,9 @@
 		"verify": "npm-run-all compile -p dist test lint"
 	},
 	"dependencies": {
-		"@neptune/icons": "^0.0.1",
-		"@neptune/protocol": "^0.0.1",
-		"@neptune/sensors": "^0.0.1",
+		"@neptune/icons": "^0.0.2",
+		"@neptune/protocol": "^0.0.2",
+		"@neptune/sensors": "^0.0.2",
 		"@popperjs/core": "^2.4.0",
 		"@svgr/webpack": "^5.4.0",
 		"jss": "^10.1.1",
