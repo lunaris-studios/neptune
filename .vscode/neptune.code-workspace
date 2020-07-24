@@ -9,8 +9,8 @@
 			"path": "../packages/core"
 		},
 		{
-			"name": "[DOCS]",
-			"path": "../packages/docs"
+			"name": "[DOCS-APP]",
+			"path": "../packages/docs-app"
 		},
 		{
 			"name": "[ICONS]",
