@@ -51,5 +51,6 @@
 		"type": "git",
 		"url": "git@github.com:lunaris-studios/neptune.git",
 		"directory": "packages/icons"
-	}
+	},
+	"gitHead": "5cadc534a11938af4aedf6134b72b44682302772"
 }

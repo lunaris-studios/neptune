@@ -29,7 +29,7 @@
     "link": "lerna link",
     "lint": "lerna run --parallel lint",
     "lint-fix": "lerna run --parallel lint-fix",
-    "release": "lerna publish",
+    "release": "multi-semantic-release",
     "run": "lerna run",
     "start": "npm run start:core",
     "start:core": "run-s bootstrap dev:core",
@@ -40,6 +40,7 @@
   "devDependencies": {
     "@graphql-codegen/cli": "^1.14.0",
     "@graphql-codegen/typescript": "^1.15.4",
+    "@qiwi/multi-semantic-release": "^3.6.0",
     "@types/history": "^4.7.6",
     "@typescript-eslint/eslint-plugin": "^3.0.1",
     "@typescript-eslint/parser": "^3.0.1",
