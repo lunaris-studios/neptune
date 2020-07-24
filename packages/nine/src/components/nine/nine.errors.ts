@@ -1,4 +1,4 @@
-import * as Neptune from "@neptune/core";
+import * as Neptune from "@lunaris/paradigm";
 
 const ns = Neptune.DISPLAYNAME_PREFIX;
 

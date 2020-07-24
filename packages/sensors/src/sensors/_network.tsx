@@ -1,6 +1,6 @@
 import * as React from "react";
-import * as Universal from "@neptune/universal";
-import * as Util from "@neptune/util";
+import * as Universal from "@lunaris/paradigm-universal";
+import * as Util from "@lunaris/paradigm-util";
 
 import * as TS from "~/ts";
 

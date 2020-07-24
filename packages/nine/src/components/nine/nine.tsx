@@ -1,5 +1,5 @@
-import * as Neptune from "@neptune/core";
-import * as Protocol from "@neptune/protocol";
+import * as Neptune from "@lunaris/paradigm";
+import * as Protocol from "@lunaris/paradigm-protocol";
 import * as React from "react";
 
 import * as Styled from "./nine.styled";

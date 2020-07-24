@@ -1,4 +1,4 @@
-import * as Protocol from "@neptune/protocol";
+import * as Protocol from "@lunaris/paradigm-protocol";
 import * as SC from "styled-components";
 
 import * as Component from "./nine";

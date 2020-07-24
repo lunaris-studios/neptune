@@ -27,10 +27,10 @@ This repository contains multiple projects in the `packages/` directory that fal
 
 These are the component libraries we publish to NPM.
 
--   [![npm](https://img.shields.io/npm/v/@neptune/core.svg?label=@neptune/core)](https://www.npmjs.com/package/@neptune/core) - Core styles & components.
--   [![npm](https://img.shields.io/npm/v/@neptune/icons.svg?label=@neptune/icons)](https://www.npmjs.com/package/@neptune/icons) - Components for generating and displaying icons.
--   [![npm](https://img.shields.io/npm/v/@neptune/nine.svg?label=@neptune/nine)](https://www.npmjs.com/package/@neptune/nine) - Components to create dynamic [9-slice](https://en.wikipedia.org/wiki/9-slice_scaling) surfaces.
--   [![npm](https://img.shields.io/npm/v/@neptune/protocol.svg?label=@neptune/protocol)](https://www.npmjs.com/package/@neptune/protocol) - Theme-aware responsive style props for building design systems.
+-   [![npm](https://img.shields.io/npm/v/@lunaris/paradigm.svg?label=@lunaris/paradigm)](https://www.npmjs.com/package/@lunaris/paradigm) - Core styles & components.
+-   [![npm](https://img.shields.io/npm/v/@lunaris/paradigm-icons.svg?label=@lunaris/paradigm-icons)](https://www.npmjs.com/package/@lunaris/paradigm-icons) - Components for generating and displaying icons.
+-   [![npm](https://img.shields.io/npm/v/@lunaris/paradigm-nine.svg?label=@lunaris/paradigm-nine)](https://www.npmjs.com/package/@lunaris/paradigm-nine) - Components to create dynamic [9-slice](https://en.wikipedia.org/wiki/9-slice_scaling) surfaces.
+-   [![npm](https://img.shields.io/npm/v/@lunaris/paradigm-protocol.svg?label=@lunaris/paradigm-protocol)](https://www.npmjs.com/package/@lunaris/paradigm-protocol) - Theme-aware responsive style props for building design systems.
 
 ### Applications
 
@@ -42,7 +42,7 @@ These are hosted on GitHub Pages as static web applications:
 
 These packages define development dependencies and contain build configuration. They adhere to the standard NPM package layout, which allows us to keep clear API boundaries for build configuration and isolate groups of `devDependencies`. They are published to NPM in order to allow other Neptune-related projects to use this infrastructure outside this monorepo.
 
--   [![npm](https://img.shields.io/npm/v/@neptune/scripts.svg?label=@neptune/scripts)](https://www.npmjs.com/package/@neptune/scripts) - various utility scripts for linting, working with CSS variables, and building icons
+-   [![npm](https://img.shields.io/npm/v/@lunaris/paradigm-scripts.svg?label=@lunaris/paradigm-scripts)](https://www.npmjs.com/package/@lunaris/paradigm-scripts) - various utility scripts for linting, working with CSS variables, and building icons
 
 ## Contributing
 

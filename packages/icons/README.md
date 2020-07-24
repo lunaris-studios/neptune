@@ -3,7 +3,7 @@
 # Neptune Icons
 
 ```sh
-yarn add @neptune/icons
+yarn add @lunaris/paradigm-icons
 ```
 
 ### Install it
@@ -12,12 +12,12 @@ Neptune Icons is currently under development, but if you'd like to use it anyway
 
 ```js
 # npm
-npm install @neptune/icons
+npm install @lunaris/paradigm-icons
 ```
 
 ```js
 # yarn
-yarn add @neptune/icons
+yarn add @lunaris/paradigm-icons
 ```
 
 ### Features
@@ -31,7 +31,7 @@ Import style functions:
 
 ```js
 import styled from 'styled-components';
-import { margin, backgroundColor, compose } from '@neptune/icons';
+import { margin, backgroundColor, compose } from '@lunaris/paradigm-icons';
 
 const styleProps = compose(
   margin,
@@ -56,7 +56,7 @@ import {
   backgroundColor,
   BackgroundColorProps,
   compose,
-} from '@neptune/icons';
+} from '@lunaris/paradigm-icons';
 
 const styleProps = compose(
   margin,

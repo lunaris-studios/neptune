@@ -1,4 +1,4 @@
-import * as Util from "@neptune/util";
+import * as Util from "@lunaris/paradigm-util";
 
 import * as TS from "~/ts";
 

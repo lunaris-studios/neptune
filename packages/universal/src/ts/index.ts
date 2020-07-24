@@ -1,5 +1,5 @@
 import * as React from "react";
-import * as Util from "@neptune/util";
+import * as Util from "@lunaris/paradigm-util";
 import { default as hoistNonReactStatics } from "hoist-non-react-statics";
 
 /**

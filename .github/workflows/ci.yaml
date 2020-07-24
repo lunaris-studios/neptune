@@ -25,12 +25,6 @@ jobs:
         run: |
           npm ci
 
-      - name: Run Lighthouse
-        id: build-4
-        run: |
-          npm run build
-          npm run lighthouse
-
       - name: Run Tests
         id: build-5
         run: |

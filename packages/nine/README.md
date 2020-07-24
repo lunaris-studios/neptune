@@ -7,14 +7,14 @@ This package provides a React component to generate completely dynamic [9-slice]
 ## Installation
 
 ```
-npm install --save @neptune/nine
+npm install --save @lunaris/paradigm-nine
 ```
 
 ## Example
 
 ```js
 import * as React from "react";
-import { default as Nine } from "@neptune/nine";
+import { default as Nine } from "@lunaris/paradigm-nine";
 
 class MyComponent extends React.Component {
 	render() {
