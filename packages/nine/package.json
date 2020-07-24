@@ -1,6 +1,6 @@
 {
 	"name": "@neptune/nine",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"description": "React library to create 9-slice image surfaces",
 	"license": "MIT",
 	"author": "Sam Craig <sam@lunaris.io>",
@@ -35,8 +35,8 @@
 		"verify": "npm-run-all compile -p dist test lint"
 	},
 	"dependencies": {
-		"@neptune/core": "^0.0.2",
-		"@neptune/protocol": "^0.0.2",
+		"@neptune/core": "^0.0.3",
+		"@neptune/protocol": "^0.0.3",
 		"react": "^16.13.1",
 		"react-spring": "^9.0.0-rc.3",
 		"styled-components": "^5.1.1"
