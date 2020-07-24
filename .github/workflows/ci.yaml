@@ -25,10 +25,10 @@ jobs:
         run: |
           npm ci
 
-      - name: Run Tests
-        id: build-5
-        run: |
-          npm run test
+      # - name: Run Tests
+      #   id: build-5
+      #   run: |
+      #     npm run test
 
       - name: Release
         id: build-6
