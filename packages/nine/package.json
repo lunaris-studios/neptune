@@ -1,6 +1,6 @@
 {
-	"name": "@neptune/nine",
-	"version": "0.0.1",
+	"name": "@lunaris/paradigm-nine",
+	"version": "0.0.2",
 	"description": "React library to create 9-slice image surfaces",
 	"license": "MIT",
 	"author": "Sam Craig <sam@lunaris.io>",
@@ -13,7 +13,7 @@
 	"scripts": {
 		"clean": "npm-run-all clean:* --parallel",
 		"clean:debug": "rm -rf ./npm-debug*",
-		"clean:modules": "rm -rf ./node_modules/",
+		"clean:modules": "rm -rf ./node_modules package-lock.json",
 		"compile": "run-p \"compile:*\"",
 		"compile:storybook": "build-storybook",
 		"compile:jest": "npm run test:jest-generate-output",
@@ -27,6 +27,7 @@
 		"lint": "run-p lint:es",
 		"lint:es": "es-lint",
 		"lint-fix": "es-lint --fix",
+		"prepublishOnly": "npm run compile",
 		"start": "npm run dev",
 		"test": "run-s test:type-check test:jest",
 		"test:type-check": "tsc",
@@ -35,8 +36,8 @@
 		"verify": "npm-run-all compile -p dist test lint"
 	},
 	"dependencies": {
-		"@neptune/core": "^0.0.1",
-		"@neptune/protocol": "^0.0.1",
+		"@lunaris/paradigm": "^0.0.2",
+		"@lunaris/paradigm-protocol": "^0.0.2",
 		"react": "^16.13.1",
 		"react-spring": "^9.0.0-rc.3",
 		"styled-components": "^5.1.1"
@@ -50,6 +51,7 @@
 		"@storybook/addon-a11y": "^5.3.19",
 		"@storybook/addon-actions": "^5.3.19",
 		"@storybook/addon-backgrounds": "^5.3.19",
+		"@storybook/addon-centered": "^5.3.19",
 		"@storybook/addon-docs": "^5.3.19",
 		"@storybook/addon-events": "^5.3.19",
 		"@storybook/addon-jest": "^5.3.19",
@@ -111,5 +113,6 @@
 		"type": "git",
 		"url": "git@github.com:lunaris-studios/neptune.git",
 		"directory": "packages/nine"
-	}
+	},
+	"gitHead": "5cadc534a11938af4aedf6134b72b44682302772"
 }

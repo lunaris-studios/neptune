@@ -1,6 +1,6 @@
 {
-	"name": "@neptune/protocol",
-	"version": "0.0.1",
+	"name": "@lunaris/paradigm-protocol",
+	"version": "0.0.2",
 	"description": "Neptune Protocol Library",
 	"license": "MIT",
 	"author": "Sam Craig <sam@lunaris.io>",
@@ -13,7 +13,7 @@
 	"scripts": {
 		"clean": "npm-run-all clean:* --parallel",
 		"clean:debug": "rm -rf ./npm-debug*",
-		"clean:modules": "rm -rf ./node_modules/",
+		"clean:modules": "rm -rf ./node_modules package-lock.json",
 		"compile": "run-p \"compile:*\"",
 		"compile:rollup": "rollup -c",
 		"dev": "run-s \"dev:*\"",
@@ -24,6 +24,7 @@
 		"lint": "run-p lint:es",
 		"lint:es": "es-lint",
 		"lint-fix": "es-lint --fix",
+		"prepublishOnly": "npm run compile",
 		"start": "npm run dev",
 		"test": "run-s test:type-check test:jest",
 		"test:type-check": "tsc",
@@ -88,5 +89,6 @@
 		"type": "git",
 		"url": "git@github.com:lunaris-studios/neptune.git",
 		"directory": "packages/core"
-	}
+	},
+	"gitHead": "5cadc534a11938af4aedf6134b72b44682302772"
 }

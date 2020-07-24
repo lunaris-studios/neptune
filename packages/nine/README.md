@@ -1,35 +1,30 @@
-React library to create [9-slice image](http://rwillustrator.blogspot.com/2007/04/understanding-9-slice-scaling.html) surfaces.
+# [Neptune](http://neptune.lunaris.io/) 9-Slice Component
 
-## Install
+Neptune is a React UI toolkit for the web.
 
-```shell
-npm install react-9-slice --save
+This package provides a React component to generate completely dynamic [9-slice](http://rwillustrator.blogspot.com/2007/04/understanding-9-slice-scaling.html) surfaces.
+
+## Installation
+
+```
+npm install --save @lunaris/paradigm-nine
 ```
 
-## Usage example
+## Example
 
 ```js
-import React, { Component } from 'react';
-import React9Slice from 'react-9-slice';
+import * as React from "react";
+import { default as Nine } from "@lunaris/paradigm-nine";
 
-class MyComponent extends Component(){
-    render(){
-        return <NineSlice width={ 256 }
-                          height={ 256 }
-                          border={ 85 }
-                          image="/images/myImage.png"
-                          imageSize={{ x: 1024, y: 512 }}>
-            HELLO WORLD!
-        </NineSlice>
-    }
+class MyComponent extends React.Component {
+	render() {
+		return (
+			<Nine width={256} height={256} corner={85} image="/images/myImage.png">
+				HELLO WORLD!
+			</NineSlicNinee>
+		);
+	}
 }
 ```
 
-## API
-
-* `width`, `height` - size of the surface
-* `border` - size of the non-scalable parts
-* `image` - path to the image (you should provide it yourself)
-* `imageSize` - initial size of the image
-* `style` - styles for the `children`
-* `children` - this element are going to be placed in the center of the surface
+### [9-Slice Documentation](http://neptune.lunaris.io/docs/#table) | [Full Documentation](http://neptune.lunaris.io/docs) | [Source Code](https://github.com/lunaris-studios/neptune)

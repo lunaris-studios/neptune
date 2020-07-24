@@ -1,5 +1,5 @@
-import * as Neptune from "@neptune/core";
-import * as Protocol from "@neptune/protocol";
+import * as Neptune from "@lunaris/paradigm";
+import * as Protocol from "@lunaris/paradigm-protocol";
 import * as React from "react";
 
 import * as Styled from "./nine.styled";
@@ -103,7 +103,9 @@ export class Nine extends Neptune.AbstractPureComponent<INineProps, INineState> 
 
 					{/* Row Two */}
 					<Styled.Nine.Section coordinates={Coordinate.WEST} />
-					<Styled.Nine.Section coordinates={Coordinate.CENTER}>{children}</Styled.Nine.Section>
+					<Styled.Nine.Section coordinates={Coordinate.CENTER}>
+						{children}
+					</Styled.Nine.Section>
 					<Styled.Nine.Section coordinates={Coordinate.EAST} />
 
 					{/* Row Three */}

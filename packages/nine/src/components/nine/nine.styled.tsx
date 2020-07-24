@@ -1,4 +1,4 @@
-import * as Protocol from "@neptune/protocol";
+import * as Protocol from "@lunaris/paradigm-protocol";
 import * as SC from "styled-components";
 
 import * as Component from "./nine";
@@ -20,10 +20,20 @@ import styled from "styled-components";
  */
 
 interface Nine {
-	Container: SC.StyledComponent<"div", any, INineContainerAttrs, keyof INineContainerAttrs>;
+	Container: SC.StyledComponent<
+		"div",
+		any,
+		INineContainerAttrs,
+		keyof INineContainerAttrs
+	>;
 	Row: SC.StyledComponent<"div", any, INineRowAttrs, keyof INineRowAttrs>;
 
-	StubImage: SC.StyledComponent<"img", any, INineStubImageAttrs, keyof INineStubImageAttrs>;
+	StubImage: SC.StyledComponent<
+		"img",
+		any,
+		INineStubImageAttrs,
+		keyof INineStubImageAttrs
+	>;
 	Section: SC.StyledComponent<"div", any, INineSectionAttrs, keyof INineSectionAttrs>;
 }
 
@@ -33,7 +43,9 @@ export const Nine = {} as Nine;
  * [Nine.Container]
  */
 
-interface INineContainerProps extends SC.ThemeProps<SC.DefaultTheme>, Component.INineDimensions {}
+interface INineContainerProps
+	extends SC.ThemeProps<SC.DefaultTheme>,
+		Component.INineDimensions {}
 
 interface INineContainerAttrs extends INineContainerProps {}
 
@@ -42,16 +54,26 @@ Nine.Container = styled("div").attrs(
 		...props,
 	}),
 )`
-	height: ${(props) => (props.height != null ? Protocol.Snippets.value(props.height, Protocol.Unit.PX) : "auto")};
-	width: ${(props) => (props.width != null ? Protocol.Snippets.value(props.width, Protocol.Unit.PX) : "auto")};
+	height: ${(props) =>
+		props.height != null
+			? Protocol.Snippets.value(props.height, Protocol.Unit.PX)
+			: "auto"};
+	width: ${(props) =>
+		props.width != null
+			? Protocol.Snippets.value(props.width, Protocol.Unit.PX)
+			: "auto"};
 
 	display: grid;
 	grid-auto-columns: auto;
 	grid-auto-rows: auto;
 	grid-template-areas: 
-		"${Component.Coordinate.NORTH_WEST} ${Component.Coordinate.NORTH} ${Component.Coordinate.NORTH_EAST}"
+		"${Component.Coordinate.NORTH_WEST} ${Component.Coordinate.NORTH} ${
+	Component.Coordinate.NORTH_EAST
+}"
 		"${Component.Coordinate.WEST} ${Component.Coordinate.CENTER} ${Component.Coordinate.EAST}"
-		"${Component.Coordinate.SOUTH_WEST} ${Component.Coordinate.SOUTH} ${Component.Coordinate.SOUTH_EAST}";
+		"${Component.Coordinate.SOUTH_WEST} ${Component.Coordinate.SOUTH} ${
+	Component.Coordinate.SOUTH_EAST
+}";
 `;
 
 /**
@@ -126,12 +148,16 @@ Nine.Section = styled("div").attrs(
 	(props: INineSectionProps): INineSectionAttrs => ({
 		...props,
 		dimensions: getSectionDimensions(props.coordinates, props.corner),
-		backgroundImagePosition: getSectionBackgroundImagePosition(props.coordinates, props.corner),
+		backgroundImagePosition: getSectionBackgroundImagePosition(
+			props.coordinates,
+			props.corner,
+		),
 	}),
 )`
 	${Protocol.Snippets.debug()}
 
-	height: ${(props) => (props.dimensions.height != null ? props.dimensions.height : "auto")};
+	height: ${(props) =>
+		props.dimensions.height != null ? props.dimensions.height : "auto"};
 	width: ${(props) => (props.dimensions.width != null ? props.dimensions.width : "auto")};
 	
 	grid-area: ${(props) => props.coordinates};

@@ -1,6 +1,6 @@
 {
-  "name": "@neptune/scripts",
-  "version": "0.0.1",
+  "name": "@lunaris/paradigm-scripts",
+  "version": "0.0.2",
   "description": "Node.js build scripts for @neptune packages",
   "author": "Lunaris Studios",
   "license": "MIT",

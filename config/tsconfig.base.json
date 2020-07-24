@@ -3,7 +3,8 @@
     "allowSyntheticDefaultImports": true,
     "declaration": true,
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
+		"forceConsistentCasingInFileNames": true,
+		"experimentalDecorators": true,
     "jsx": "react",
     "module": "esnext",
     "moduleResolution": "node",
@@ -13,6 +14,6 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
-    "target": "es5"
+    "target": "esnext"
   }
 }
