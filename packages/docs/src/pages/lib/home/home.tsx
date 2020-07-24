@@ -20,13 +20,13 @@ export const HomePage = () => (
 		</div>
 		{/* <GB.Link to="/page-2/">Go to page 2</GB.Link> <br /> */}
 		{/* <GB.Link to="/using-typescript/">Go to "Using TypeScript"</GB.Link> */}
-		<TestComponent bar="foo" />
+		<TestComponent bar="foo"  />
 	</Layout>
 );
 
 //
 
-interface ITestComponentProps extends SensorProps {
+interface ITestComponentProps extends SensorProps, ReduxProps {
 	bar: string;
 }
 
@@ -51,8 +51,6 @@ const sensors = Universal.compose(
 	Sensors.withWindowSizeSensor
 );
 
-const connect = Universal.connect(redux, sensors);
-
 class TestComponentImpl extends React.PureComponent<ITestComponentProps> {
 	public static readonly displayName = "TestComponent";
 
@@ -61,7 +59,7 @@ class TestComponentImpl extends React.PureComponent<ITestComponentProps> {
 	}
 
 	public render() {
-		const { mouse, windowSize } = this.props.sensors!;
+		const { mouse, windowSize } = this.props.sensors;
 
 		return (
 			<div
@@ -86,4 +84,4 @@ class TestComponentImpl extends React.PureComponent<ITestComponentProps> {
 	}
 }
 
-const TestComponent = sensors(TestComponentImpl);
+const TestComponent = redux(sensors(TestComponentImpl));
