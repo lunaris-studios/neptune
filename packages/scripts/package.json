@@ -1,6 +1,7 @@
 {
-  "name": "@neptune/scripts",
-  "version": "0.0.3",
+	"name": "@neptune/scripts",
+	"private": true,
+  "version": "0.0.1",
   "description": "Node.js build scripts for @neptune packages",
   "author": "Lunaris Studios",
   "license": "MIT",

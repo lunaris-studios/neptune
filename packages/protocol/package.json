@@ -1,6 +1,6 @@
 {
 	"name": "@neptune/protocol",
-	"version": "0.0.3",
+	"version": "0.0.1",
 	"description": "Neptune Protocol Library",
 	"license": "MIT",
 	"author": "Sam Craig <sam@lunaris.io>",
@@ -24,6 +24,7 @@
 		"lint": "run-p lint:es",
 		"lint:es": "es-lint",
 		"lint-fix": "es-lint --fix",
+		"prepare": "npm run compile",
 		"start": "npm run dev",
 		"test": "run-s test:type-check test:jest",
 		"test:type-check": "tsc",
