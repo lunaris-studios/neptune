@@ -25,7 +25,7 @@
 		"lint": "run-p lint:es",
 		"lint:es": "es-lint",
 		"lint-fix": "es-lint --fix",
-		"prepare": "npm run compile",
+		"prepublishOnly": "npm run compile",
 		"start": "npm run dev",
 		"test": "run-s test:type-check test:jest",
 		"test:type-check": "tsc",
