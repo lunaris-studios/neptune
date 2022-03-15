@@ -34,7 +34,7 @@
 		"verify": "npm-run-all compile -p dist test lint"
 	},
 	"dependencies": {
-		"lodash-es": "^4.17.15",
+		"lodash-es": "^4.17.21",
 		"react": "^16.13.1",
 		"utility-types": "^3.10.0"
 	},
